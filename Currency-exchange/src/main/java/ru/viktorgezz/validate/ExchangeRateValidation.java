@@ -12,8 +12,8 @@ import java.sql.SQLException;
 
 public class ExchangeRateValidation {
 
-    private final ExchangeRateDao exchangeRateDao = new ExchangeRateDao();
-    private final CurrencyDao currencyDao = new CurrencyDao();
+    private final ExchangeRateDao exchangeRateDao = ExchangeRateDao.getInstance();
+    private final CurrencyDao currencyDao = CurrencyDao.getInstance();
 
     public void validateExchangeRateDto(ExchangeRateDto exchangeRateDto) throws RequestReaderException, SQLException, CurrencyException, ExchangeRateException {
         validateEmptyFields(exchangeRateDto.getBaseCurrency(), exchangeRateDto.getTargetCurrency(), exchangeRateDto.getRate());

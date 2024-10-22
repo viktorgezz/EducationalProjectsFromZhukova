@@ -21,7 +21,7 @@ import java.util.List;
 @WebServlet(urlPatterns = "/exchangeRates")
 public class ExchangeRatesServlet extends HttpServlet {
 
-    private final ExchangeRateDao exchangeRateDAO = new ExchangeRateDao();
+    private final ExchangeRateDao exchangeRateDAO = ExchangeRateDao.getInstance();
     private final ExchangeRateValidation exchangeRateValidation = new ExchangeRateValidation();
     private final JsonHandler jsonHandler = new JsonHandler();
 

@@ -13,6 +13,12 @@ public class ExchangeRateDto {
     public ExchangeRateDto() {
     }
 
+    public ExchangeRateDto(Builder builder) {
+        this.baseCurrency = builder.baseCurrency;
+        this.targetCurrency = builder.targetCurrency;
+        this.rate = builder.rate;
+    }
+
     public Currency getBaseCurrency() {
         return baseCurrency;
     }
@@ -44,5 +50,33 @@ public class ExchangeRateDto {
                 ", targetCurrency=" + targetCurrency +
                 ", rate=" + rate +
                 '}';
+    }
+
+    public static class Builder {
+        private Currency baseCurrency;
+        private Currency targetCurrency;
+        private Double rate;
+
+        public Builder setBaseCurrency(Currency baseCurrency) {
+            this.baseCurrency = baseCurrency;
+            return this;
+        }
+
+        public Builder setTargetCurrency(Currency targetCurrency) {
+            this.targetCurrency = targetCurrency;
+            return this;
+        }
+
+        public Builder setRate(Double rate) {
+            this.rate = rate;
+            return this;
+        }
+
+        public ExchangeRateDto build() {
+            if (baseCurrency == null || targetCurrency == null || rate == null) {
+                throw new IllegalArgumentException("baseCurrency, targetCurrency and rate должны быть заданы");
+            }
+            return new ExchangeRateDto(this);
+        }
     }
 }

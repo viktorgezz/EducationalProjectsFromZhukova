@@ -11,6 +11,14 @@ import java.util.List;
 import java.util.Optional;
 
 public class CurrencyDao {
+    private static final CurrencyDao instance = new CurrencyDao();
+
+    private CurrencyDao() {
+    }
+
+    public static CurrencyDao getInstance() {
+        return instance;
+    }
 
     private final CurrencyMapper currencyMapper = new CurrencyMapper();
 

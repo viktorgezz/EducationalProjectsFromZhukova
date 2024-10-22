@@ -22,7 +22,7 @@ import java.util.Optional;
 @WebServlet(urlPatterns = "/exchangeRate/*")
 public class ExchangeRateServlet extends HttpServlet {
 
-    private final ExchangeRateDao exchangeRateDao = new ExchangeRateDao();
+    private final ExchangeRateDao exchangeRateDao = ExchangeRateDao.getInstance();
     private final CurrencyValidation currencyValidation = new CurrencyValidation();
     private final JsonHandler jsonHandler = new JsonHandler();
     private final PathInfo pathInfo = new PathInfo();
@@ -49,11 +49,11 @@ public class ExchangeRateServlet extends HttpServlet {
             jsonHandler.send(exchangeRate, resp, 200);
 
         } catch (ExchangeRateException e) {
-            jsonHandler.send(e.getMessage(), resp, 404);
+            jsonHandler.sendException(e.getMessage(), resp, 404);
         } catch (SQLException e) {
-            jsonHandler.send(e.getMessage(), resp, 500);
+            jsonHandler.sendException(e.getMessage(), resp, 500);
         } catch (CurrencyException e) {
-            jsonHandler.send("Валюта в курсе не найдена", resp, 500);
+            jsonHandler.sendException("Валюта в курсе не найдена", resp, 500);
         }
     }
 

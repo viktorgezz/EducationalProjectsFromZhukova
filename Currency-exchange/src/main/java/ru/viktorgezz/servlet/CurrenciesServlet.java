@@ -21,7 +21,7 @@ import java.util.List;
 @WebServlet(urlPatterns = "/currencies")
 public class CurrenciesServlet extends HttpServlet {
 
-    private final CurrencyDao currencyDAO = new CurrencyDao();
+    private final CurrencyDao currencyDAO = CurrencyDao.getInstance();
     private final JsonHandler jsonHandler = new JsonHandler();
     private final CurrencyValidation currencyValidation = new CurrencyValidation();
 

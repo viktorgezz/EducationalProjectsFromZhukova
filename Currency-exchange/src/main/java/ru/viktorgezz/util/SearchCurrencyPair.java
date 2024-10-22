@@ -10,8 +10,8 @@ import java.util.Optional;
 
 public class SearchCurrencyPair {
 
-    private final ExchangeRateDao exchangeRateDAO = new ExchangeRateDao();
-    private final CurrencyDao currencyDAO = new CurrencyDao();
+    private final ExchangeRateDao exchangeRateDAO = ExchangeRateDao.getInstance();
+    private final CurrencyDao currencyDAO = CurrencyDao.getInstance();
 
     public Optional<ExchangeRate> perform(String formCode, String toCode) throws SQLException, CurrencyException {
         Optional<ExchangeRate> exchangeRateOpt = exchangeRateDAO.findExchangeRate(formCode, toCode);

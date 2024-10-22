@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class CurrencyValidation {
 
-    private final CurrencyDao currencyDao = new CurrencyDao();
+    private final CurrencyDao currencyDao = CurrencyDao.getInstance();
 
     public void validateCurrencies(CurrencyDto currencyDto) throws RequestReaderException, CurrencyException, SQLException {
         validateEmptyFields(currencyDto.getName(), currencyDto.getSign(), currencyDto.getCode());

@@ -9,21 +9,20 @@ import java.sql.SQLException;
 public class CurrencyMapper {
 
     public CurrencyDto convertCurrencyToDto(Currency currency) {
-        CurrencyDto currencyDTO = new CurrencyDto();
-        currencyDTO.setCode(currency.getCode());
-        currencyDTO.setName(currency.getName());
-        currencyDTO.setSign(currency.getSign());
-        return currencyDTO;
+        return new CurrencyDto.Builder()
+                .setCode(currency.getCode())
+                .setName(currency.getName())
+                .setSign(currency.getSign())
+                .build();
     }
 
     public Currency mapRowInCurrency(ResultSet rs) throws SQLException {
-        Currency currency = new Currency();
-
-        currency.setId(rs.getInt("id"));
-        currency.setCode(rs.getString("code"));
-        currency.setName(rs.getString("full_name"));
-        currency.setSign(rs.getString("sign"));
-
-        return currency;
+        System.out.println(rs.getInt("id"));
+        return new Currency.Builder()
+                .setId(rs.getInt("id"))
+                .setName(rs.getString("full_name"))
+                .setCode(rs.getString("code"))
+                .setSign(rs.getString("sign"))
+                .build();
     }
 }

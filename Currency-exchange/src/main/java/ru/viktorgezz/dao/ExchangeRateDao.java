@@ -15,7 +15,16 @@ import java.util.Optional;
 
 public class ExchangeRateDao {
 
-    private final CurrencyDao currencyDAO = new CurrencyDao();
+    private static final ExchangeRateDao instance = new ExchangeRateDao();
+
+    private ExchangeRateDao() {
+    }
+
+    public static ExchangeRateDao getInstance() {
+        return instance;
+    }
+
+    private final CurrencyDao currencyDAO = CurrencyDao.getInstance();
     private final static ExchangeRateMapper exchangeRateMapper = new ExchangeRateMapper();
 
     public List<ExchangeRateDto> index() throws SQLException{
@@ -27,11 +36,10 @@ public class ExchangeRateDao {
 
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){
-                Optional<ExchangeRate> exchangeRateTemp = exchangeRateMapper.mapRowToExchangeRate(rs);
+                Optional<ExchangeRate> exchangeRateTemp = Optional.of(exchangeRateMapper.mapRowToExchangeRate(rs));
                 exchangeRateTemp.ifPresent(exchangeRate -> exchangeRates.add(exchangeRateMapper.convertModelToDto(exchangeRate)));
             }
         }
-
         return exchangeRates;
     }
 
@@ -71,7 +79,7 @@ public class ExchangeRateDao {
 
             ResultSet rs = stmt.executeQuery();
 
-            return exchangeRateMapper.mapRowToExchangeRate(rs);
+            return Optional.of(exchangeRateMapper.mapRowToExchangeRate(rs));
         }
     }
 

@@ -6,42 +6,25 @@ import ru.viktorgezz.model.ExchangeRate;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Optional;
 
 public class ExchangeRateMapper {
 
-    private final CurrencyDao currencyDAO = new CurrencyDao();
+    private final CurrencyDao currencyDAO = CurrencyDao.getInstance();
 
 
-    public Optional<ExchangeRate> mapRowToExchangeRate(ResultSet rs) throws SQLException {
-        ExchangeRate exchangeRate = new ExchangeRate();
-        if (rs.getString("base_currency_id") == null) {
-            return Optional.empty();
-        }
-        exchangeRate.setId(rs.getInt("id"));
-        exchangeRate.setBaseCurrency(currencyDAO.findCurrencyById(rs.getInt("base_currency_id")).get());
-        exchangeRate.setTargetCurrency(currencyDAO.findCurrencyById(rs.getInt("target_currency_id")).get());
-        exchangeRate.setRate(rs.getDouble("rate"));
-
-        return Optional.of(exchangeRate);
+    public ExchangeRate mapRowToExchangeRate(ResultSet rs) throws SQLException {
+        return new ExchangeRate.Builder()
+                        .setId(rs.getInt("id"))
+                        .setBaseCurrency(currencyDAO.findCurrencyById(rs.getInt("base_currency_id")).orElseThrow())
+                        .setTargetCurrency(currencyDAO.findCurrencyById(rs.getInt("target_currency_id")).orElseThrow())
+                        .setRate(rs.getDouble("rate"))
+                        .build();
     }
 
-//    public ExchangeRateDto mapRowToExchangeRateDTO(ResultSet rs) throws SQLException {
-//        ExchangeRateDto exchangeRateDTO = new ExchangeRateDto();
-//        exchangeRateDTO.setBaseCurrency(currencyDAO.findCurrencyById(rs.getInt("base_currency_id")));
-//        exchangeRateDTO.setTargetCurrency(currencyDAO.findCurrencyById(rs.getInt("target_currency_id")));
-//        exchangeRateDTO.setRate(rs.getDouble("rate"));
-//
-//        return exchangeRateDTO;
-//    }
-
     public ExchangeRateDto convertModelToDto(ExchangeRate exchangeRate) {
-        ExchangeRateDto exchangeRateDTO = new ExchangeRateDto();
-
-        exchangeRateDTO.setBaseCurrency(exchangeRate.getBaseCurrency());
-        exchangeRateDTO.setTargetCurrency(exchangeRate.getTargetCurrency());
-        exchangeRateDTO.setRate(exchangeRate.getRate());
-
-        return exchangeRateDTO;
+        return new ExchangeRateDto.Builder().setBaseCurrency(exchangeRate.getBaseCurrency())
+                .setTargetCurrency(exchangeRate.getTargetCurrency())
+                .setRate(exchangeRate.getRate())
+                .build();
     }
 }

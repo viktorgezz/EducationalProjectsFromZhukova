@@ -19,7 +19,7 @@ import java.sql.SQLException;
 @WebServlet(urlPatterns = "/currency/*")
 public class CurrencyServlet extends HttpServlet {
 
-    private final CurrencyDao currencyDAO = new CurrencyDao();
+    private final CurrencyDao currencyDAO = CurrencyDao.getInstance();
     private final JsonHandler jsonHandler = new JsonHandler();
     private final PathInfo pathInfo = new PathInfo();
     private final CurrencyValidation currencyValidation = new CurrencyValidation();
@@ -38,7 +38,7 @@ public class CurrencyServlet extends HttpServlet {
         try {
             Currency currency = currencyDAO.findCurrencyByCode(code)
                     .orElseThrow(() -> new CurrencyException("Валюта не найдена"));
-            jsonHandler.send(currency, resp);
+            jsonHandler.send(currency, resp, 200);
         } catch (CurrencyException e) {
             jsonHandler.send(e.getMessage(), resp, 404);
             return;

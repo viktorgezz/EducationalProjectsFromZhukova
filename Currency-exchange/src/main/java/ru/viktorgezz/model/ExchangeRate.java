@@ -6,11 +6,18 @@ public class ExchangeRate {
 
     private Currency baseCurrency;
 
-    private Currency TargetCurrency;
+    private Currency targetCurrency;
 
     private Double rate;
 
     public ExchangeRate() {
+    }
+
+    public ExchangeRate(Builder builder) {
+        this.id = builder.id;
+        this.baseCurrency = builder.baseCurrency;
+        this.targetCurrency = builder.targetCurrency;
+        this.rate = builder.rate;
     }
 
     public int getId() {
@@ -30,11 +37,11 @@ public class ExchangeRate {
     }
 
     public Currency getTargetCurrency() {
-        return TargetCurrency;
+        return targetCurrency;
     }
 
     public void setTargetCurrency(Currency targetCurrency) {
-        TargetCurrency = targetCurrency;
+        this.targetCurrency = targetCurrency;
     }
 
     public Double getRate() {
@@ -47,7 +54,7 @@ public class ExchangeRate {
 
     public ExchangeRate(Currency baseCurrency, Currency targetCurrency, Double rate) {
         this.baseCurrency = baseCurrency;
-        TargetCurrency = targetCurrency;
+        this.targetCurrency = targetCurrency;
         this.rate = rate;
     }
 
@@ -56,8 +63,39 @@ public class ExchangeRate {
         return "ExchangeRate{" +
                 "id=" + id +
                 ", baseCurrency=" + baseCurrency +
-                ", TargetCurrency=" + TargetCurrency +
+                ", targetCurrency=" + targetCurrency +
                 ", rate=" + rate +
                 '}';
+    }
+
+    public static class Builder {
+        private int id;
+        private Currency baseCurrency;
+        private Currency targetCurrency;
+        private Double rate;
+
+        public Builder setId(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setBaseCurrency(Currency baseCurrency) {
+            this.baseCurrency = baseCurrency;
+            return this;
+        }
+
+        public Builder setTargetCurrency(Currency targetCurrency) {
+            this.targetCurrency = targetCurrency;
+            return this;
+        }
+
+        public Builder setRate(Double rate) {
+            this.rate = rate;
+            return this;
+        }
+
+        public ExchangeRate build() {
+            return new ExchangeRate(this);
+        }
     }
 }

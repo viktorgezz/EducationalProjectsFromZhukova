@@ -13,10 +13,10 @@ public class ExchangeDto {
     public ExchangeDto() {
     }
 
-    public ExchangeDto(ExchangeRate exchangeRate, Double amount, Double convertedAmount) {
-        this.exchangeRate = exchangeRate;
-        this.amount = amount;
-        this.convertedAmount = convertedAmount;
+    public ExchangeDto(Builder builder) {
+        this.exchangeRate = builder.exchangeRate;
+        this.amount = builder.amount;
+        this.convertedAmount = builder.convertedAmount;
     }
 
     public ExchangeRate getExchangeRate() {
@@ -50,5 +50,33 @@ public class ExchangeDto {
                 ", amount=" + amount +
                 ", convertedAmount=" + convertedAmount +
                 '}';
+    }
+
+    public static class Builder {
+        private ExchangeRate exchangeRate;
+        private Double amount;
+        private Double convertedAmount;
+
+        public Builder setExchangeRate(ExchangeRate exchangeRate) {
+            this.exchangeRate = exchangeRate;
+            return this;
+        }
+
+        public Builder setAmount(Double amount) {
+            this.amount = amount;
+            return this;
+        }
+
+        public Builder setConvertedAmount(Double convertedAmount) {
+            this.convertedAmount = convertedAmount;
+            return this;
+        }
+
+        public ExchangeDto build() {
+            if (exchangeRate == null || amount == null || convertedAmount == null) {
+                throw new IllegalArgumentException("ExchangeRate, amount and convertedAmount должны быть заданы");
+            }
+            return new ExchangeDto(this);
+        }
     }
 }
