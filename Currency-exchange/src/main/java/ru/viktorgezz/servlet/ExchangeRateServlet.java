@@ -14,16 +14,15 @@ import ru.viktorgezz.model.ExchangeRate;
 import ru.viktorgezz.util.exception.CurrencyException;
 import ru.viktorgezz.util.exception.ExchangeRateException;
 import ru.viktorgezz.validate.CurrencyValidation;
-import ru.viktorgezz.validate.ExchangeRateValidation;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Optional;
 
 @WebServlet(urlPatterns = "/exchangeRate/*")
 public class ExchangeRateServlet extends HttpServlet {
 
     private final ExchangeRateDao exchangeRateDao = new ExchangeRateDao();
-    private final ExchangeRateValidation exchangeRateValidation = new ExchangeRateValidation();
     private final CurrencyValidation currencyValidation = new CurrencyValidation();
     private final JsonHandler jsonHandler = new JsonHandler();
     private final PathInfo pathInfo = new PathInfo();
@@ -40,18 +39,21 @@ public class ExchangeRateServlet extends HttpServlet {
         String code2 = pathInfo.getSecondCodeOutOfTwo(req);
 
         try {
-            ExchangeRate exchangeRate = exchangeRateDao.findExchangeRate(code1, code2)
+            Optional<ExchangeRate> exchangeRateOpt = exchangeRateDao.findExchangeRateSafely(code1, code2);
+            if (exchangeRateOpt.isEmpty()) {
+                exchangeRateOpt = exchangeRateDao.findExchangeRate(code2, code1);
+                exchangeRateOpt.orElseThrow().setRate(1 / exchangeRateOpt.get().getRate());
+            }
+            ExchangeRate exchangeRate = exchangeRateOpt
                     .orElseThrow(() -> new ExchangeRateException("Обменный курс для пары не найден")); // убрать в метод валидации
             jsonHandler.send(exchangeRate, resp, 200);
+
         } catch (ExchangeRateException e) {
             jsonHandler.send(e.getMessage(), resp, 404);
-            return;
         } catch (SQLException e) {
             jsonHandler.send(e.getMessage(), resp, 500);
-            return;
         } catch (CurrencyException e) {
             jsonHandler.send("Валюта в курсе не найдена", resp, 500);
-            return;
         }
     }
 

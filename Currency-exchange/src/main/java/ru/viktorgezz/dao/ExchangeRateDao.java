@@ -86,7 +86,7 @@ public class ExchangeRateDao {
     private Integer findIdCurrencyByCode(String code) throws SQLException, CurrencyException {
         return currencyDAO.findCurrencyByCode(code)
                 .orElseThrow(
-                        () -> new CurrencyException("Валюта не найдена"))
+                        () -> new CurrencyException("Валюта не найдена " + code))
                 .getId();
     }
 

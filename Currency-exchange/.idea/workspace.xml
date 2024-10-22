@@ -10,6 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c5d8665-a880-4c1d-ad16-8f187a578534" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dao/ExchangeRateDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dao/ExchangeRateDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/ExchangeRateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/ExchangeRateServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/ExchangeRatesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/ExchangeRatesServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/ExchangeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/ExchangeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/SearchCurrencyPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/SearchCurrencyPair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/validate/CurrencyValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/validate/CurrencyValidation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/Simulation.java" afterDir="false" />
     </list>
@@ -43,6 +50,10 @@
   <component name="HttpClientSelectedEnvironments">
     <file url="jar://$APPLICATION_HOME_DIR$/plugins/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/requests/collection/requests-with-authorization.http" environment="test" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -71,8 +82,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Tomcat Server.Tomcat 10.1.28.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "currency-exchange",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -256,7 +268,8 @@
       <workItem from="1728314141813" duration="7112000" />
       <workItem from="1728456226474" duration="4376000" />
       <workItem from="1728488400878" duration="741000" />
-      <workItem from="1729581206052" duration="307000" />
+      <workItem from="1729581206052" duration="1487000" />
+      <workItem from="1729584436022" duration="4780000" />
     </task>
     <servers />
   </component>
@@ -269,7 +282,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/CurrencyServlet.java</url>
           <line>27</line>
-          <properties class="ru.viktorgezz.servlet.CurrencyServlet">
+          <properties class="ru.viktorgezz.servlet.CurrencyServlet" method="doGet">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

@@ -59,7 +59,6 @@ public class ExchangeRatesServlet extends HttpServlet {
             jsonHandler.send("Курс добавлен", resp, 201);
         } catch (SQLException e) {
             jsonHandler.send(e.getMessage(), resp, 500);
-            return;
         }
     }
 }

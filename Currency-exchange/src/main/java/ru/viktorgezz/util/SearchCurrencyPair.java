@@ -16,17 +16,20 @@ public class SearchCurrencyPair {
     public Optional<ExchangeRate> perform(String formCode, String toCode) throws SQLException, CurrencyException {
         Optional<ExchangeRate> exchangeRateOpt = exchangeRateDAO.findExchangeRate(formCode, toCode);
 
-        if (exchangeRateOpt.isEmpty())
+        if (exchangeRateOpt.isEmpty()) {
             exchangeRateOpt = exchangeRateDAO.findExchangeRate(toCode, formCode);
-
+            if (exchangeRateOpt.isPresent()) {
+                exchangeRateOpt.orElseThrow().setRate(1 / exchangeRateOpt.get().getRate());
+            }
+        }
         if (exchangeRateOpt.isEmpty()) {
             Optional<ExchangeRate> usdFrom = exchangeRateDAO.findExchangeRate("USD", formCode);
             Optional<ExchangeRate> usdTo = exchangeRateDAO.findExchangeRate("USD", toCode);
 
             if (usdFrom.isPresent() && usdTo.isPresent()) {
                 ExchangeRate exchangeRateTemp = new ExchangeRate(
-                        currencyDAO.findCurrencyByCode(formCode).get(),
-                        currencyDAO.findCurrencyByCode(toCode).get(),
+                        currencyDAO.findCurrencyByCode(formCode).orElseThrow(),
+                        currencyDAO.findCurrencyByCode(toCode).orElseThrow(),
                         usdFrom.get().getRate() / usdTo.get().getRate()
                 );
                 exchangeRateOpt = Optional.of(exchangeRateTemp);

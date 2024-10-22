@@ -19,13 +19,13 @@ public class CurrencyValidation {
 
     public void validateCurrencyCode(String code) throws CurrencyException {
         if (code.isEmpty()) {
-            throw new CurrencyException("Код валюты отсутствует в адресе\n");
+            throw new CurrencyException("Код валюты отсутствует в адресе");
         }
     }
 
     public void validateCurrencyCodes(String codes) throws CurrencyException {
         if (codes.length() != 6) {
-            throw new CurrencyException("Код валюты отсутствует в адресе или имеет неправильную запись\n");
+            throw new CurrencyException("Код валюты отсутствует в адресе или имеет неправильную запись");
         }
     }
 
@@ -70,7 +70,7 @@ public class CurrencyValidation {
 
     private void validateExistsCurrency(String code) throws CurrencyException, SQLException {
         if (currencyDao.findCurrencyDtoByCode(code).isPresent()) {
-            throw new CurrencyException("Валюта с таким кодом уже существует\n");
+            throw new CurrencyException("Валюта с таким кодом уже существует");
         }
     }
 }
