@@ -1,1 +1,0 @@
-{"exchangeRate":{"id":1,"baseCurrency":{"id":1,"name":"US Dollar","code":"USD","sign":"$"},"rate":91.2,"targetCurrency":{"id":3,"name":"Russian Ruble","code":"RUB","sign":"â½"}},"amount":10.0,"convertedAmount":912.0}

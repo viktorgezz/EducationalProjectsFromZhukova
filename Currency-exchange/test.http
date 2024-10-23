@@ -14,7 +14,9 @@ GET http://localhost:8080/currency/USD
 ####
 GET http://localhost:8080/exchangeRate/USDRUB
 ####
-#PATCH http://localhost:8080/exchangeRate/USDRUB?rate=91.2
+GET http://localhost:8080/exchangeRate/RUBUSD
+####
+PATCH http://localhost:8080/exchangeRate/USDRUB?rate=91.2
 ####
 #
 GET http://localhost:8080/exchangeRates
@@ -25,5 +27,5 @@ POST http://localhost:8080/exchangeRates?baseCurrencyCode=US&targetCurrencyCode=
 GET http://localhost:8080/exchange
 ####
 
-GET  http://localhost:8080/exchange?from=USD&to=RUB&amount=10
+GET  http://localhost:8080/exchange?from=RUB&to=USD&amount=91.2
 #

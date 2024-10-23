@@ -4,6 +4,8 @@ import ru.viktorgezz.util.BdConfig;
 import ru.viktorgezz.dto.CurrencyDto;
 import ru.viktorgezz.mapper.CurrencyMapper;
 import ru.viktorgezz.model.Currency;
+import ru.viktorgezz.util.converter.CurrencyConverter;
+import ru.viktorgezz.util.exception.CurrencyException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ public class CurrencyDao {
 
     private final CurrencyMapper currencyMapper = new CurrencyMapper();
 
-    public List<CurrencyDto> index() throws SQLException{
+    public List<CurrencyDto> index() throws SQLException {
         String sql = "SELECT * FROM Currencies";
 
         List<CurrencyDto> currenciesDto = new ArrayList<>();
@@ -31,7 +33,7 @@ public class CurrencyDao {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Currency currencyTemp = currencyMapper.mapRowInCurrency(rs);
-                currenciesDto.add(currencyMapper.convertCurrencyToDto(currencyTemp));
+                currenciesDto.add(CurrencyConverter.convertModelToDto(currencyTemp));
             }
         }
 
@@ -50,7 +52,7 @@ public class CurrencyDao {
         }
     }
 
-    public Optional<Currency> findCurrencyByCode(String code) throws SQLException{
+    public Optional<Currency> findCurrencyByCode(String code) throws SQLException {
         String sql = "SELECT * FROM Currencies WHERE (code = ?)";
 
         try (Connection conn = DriverManager.getConnection(BdConfig.URL)) {
@@ -66,10 +68,10 @@ public class CurrencyDao {
     }
 
     public Optional<CurrencyDto> findCurrencyDtoByCode(String code) throws SQLException {
-        return findCurrencyByCode(code).map(currencyMapper::convertCurrencyToDto);
+        return findCurrencyByCode(code).map(CurrencyConverter::convertModelToDto);
     }
 
-    public Optional<Currency> findCurrencyById(int id) throws SQLException {
+    public Optional<Currency> getCurrencyById(int id) throws SQLException {
         String sql = "SELECT * FROM Currencies WHERE (id = ?)";
 
         try (Connection conn = DriverManager.getConnection(BdConfig.URL)) {
@@ -77,7 +79,24 @@ public class CurrencyDao {
             stmt.setInt(1, id);
 
             ResultSet rs = stmt.executeQuery();
+            if (!rs.next()) {
+                return Optional.empty();
+            }
             return Optional.of(currencyMapper.mapRowInCurrency(rs));
+        }
+    }
+
+    public Integer getIdCurrencyByCode(String code) throws SQLException, CurrencyException {
+        final String param = "id";
+        String sql = "SELECT " + param + " FROM Currencies WHERE (code = ?)";
+        try (Connection conn = DriverManager.getConnection(BdConfig.URL)) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, code);
+            ResultSet rs = stmt.executeQuery();
+            if (!rs.next()) {
+                throw new CurrencyException("Валюта не найдена " + code);
+            }
+            return stmt.executeQuery().getInt(param);
         }
     }
 

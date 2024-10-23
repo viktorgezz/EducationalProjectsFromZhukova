@@ -1,17 +1,17 @@
 package ru.viktorgezz.servlet;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.ws.rs.core.MediaType;
+import ru.viktorgezz.mapper.ExchangeRateMapper;
 import ru.viktorgezz.util.JsonHandler;
 import ru.viktorgezz.util.SearchCurrencyPair;
-import ru.viktorgezz.dao.CurrencyDao;
-import ru.viktorgezz.dao.ExchangeRateDao;
 import ru.viktorgezz.dto.ExchangeDto;
 import ru.viktorgezz.model.ExchangeRate;
+import ru.viktorgezz.util.converter.ExchangeConverter;
 import ru.viktorgezz.util.exception.CurrencyException;
 
 import java.io.IOException;
@@ -22,9 +22,11 @@ import java.util.Optional;
 public class ExchangeServlet extends HttpServlet {
     private final SearchCurrencyPair searchCurrencyPair = new SearchCurrencyPair();
     private final JsonHandler jsonHandler = new JsonHandler();
+    private final ExchangeRateMapper exchangeRateMapper = new ExchangeRateMapper();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType(MediaType.APPLICATION_JSON);
         String formCode = req.getParameter("from");
         String toCode = req.getParameter("to");
         double amount = Double.parseDouble(req.getParameter("amount"));
@@ -37,15 +39,13 @@ public class ExchangeServlet extends HttpServlet {
         } catch (SQLException e) {
             jsonHandler.send(e.getMessage(), resp, 500);
         }
-
         ExchangeRate exchangeRate = exchangeRateOpt.orElseThrow();
 
-        double convertedAmount = searchCurrencyPair.calculateConvertedAmount(exchangeRate, amount);
-
-        ExchangeDto exchangeDTO = new ExchangeDto();
-        exchangeDTO.setExchangeRate(exchangeRate);
-        exchangeDTO.setAmount(amount);
-        exchangeDTO.setConvertedAmount(convertedAmount); // convert
+        ExchangeDto exchangeDTO = ExchangeConverter
+                .convertPartsOfModelToDto(
+                        exchangeRate,
+                        amount,
+                        searchCurrencyPair.calculateConvertedAmount(exchangeRate, amount));
 
         jsonHandler.send(exchangeDTO, resp, 200);
     }

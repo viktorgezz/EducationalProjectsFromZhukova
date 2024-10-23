@@ -1,1 +1,0 @@
-{"exchangeRate":{"id":0,"baseCurrency":{"id":0,"name":null,"code":null,"sign":null},"rate":0.0,"targetCurrency":{"id":0,"name":null,"code":null,"sign":null}},"amount":10.0,"convertedAmount":0.0}

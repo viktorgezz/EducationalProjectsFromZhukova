@@ -1,5 +1,7 @@
 package ru.viktorgezz.model;
 
+import ru.viktorgezz.util.exception.CurrencyException;
+
 public class Currency {
 
     private Integer id;
@@ -95,6 +97,9 @@ public class Currency {
         }
 
         public Currency build() {
+            if (id == 0) {
+                throw new RuntimeException("Ошибка build");
+            }
             return new Currency(this);
         }
     }

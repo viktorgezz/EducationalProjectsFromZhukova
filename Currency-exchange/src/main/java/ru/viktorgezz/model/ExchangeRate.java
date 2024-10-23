@@ -95,6 +95,9 @@ public class ExchangeRate {
         }
 
         public ExchangeRate build() {
+            if (id == 0) {
+                throw new RuntimeException("Ошибка build");
+            }
             return new ExchangeRate(this);
         }
     }

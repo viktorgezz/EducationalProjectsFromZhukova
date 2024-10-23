@@ -3,10 +3,10 @@ package ru.viktorgezz.dao;
 import ru.viktorgezz.util.BdConfig;
 import ru.viktorgezz.dto.ExchangeRateDto;
 import ru.viktorgezz.mapper.ExchangeRateMapper;
-import ru.viktorgezz.model.Currency;
 import ru.viktorgezz.model.ExchangeRate;
+import ru.viktorgezz.util.converter.ExchangeConverter;
+import ru.viktorgezz.util.converter.ExchangeRateConverter;
 import ru.viktorgezz.util.exception.CurrencyException;
-import ru.viktorgezz.util.exception.ExchangeRateException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Optional;
 
 public class ExchangeRateDao {
-
     private static final ExchangeRateDao instance = new ExchangeRateDao();
 
     private ExchangeRateDao() {
@@ -37,7 +36,7 @@ public class ExchangeRateDao {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){
                 Optional<ExchangeRate> exchangeRateTemp = Optional.of(exchangeRateMapper.mapRowToExchangeRate(rs));
-                exchangeRateTemp.ifPresent(exchangeRate -> exchangeRates.add(exchangeRateMapper.convertModelToDto(exchangeRate)));
+                exchangeRateTemp.ifPresent(exchangeRate -> exchangeRates.add(ExchangeRateConverter.convertModelToDto(exchangeRate)));
             }
         }
         return exchangeRates;
@@ -62,8 +61,8 @@ public class ExchangeRateDao {
         try (Connection conn = DriverManager.getConnection(BdConfig.URL)) {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setDouble(1, rate);
-            stmt.setInt(2, findIdCurrencyByCode(code1));
-            stmt.setInt(3, findIdCurrencyByCode(code2));
+            stmt.setInt(2, currencyDAO.getIdCurrencyByCode(code1));
+            stmt.setInt(3, currencyDAO.getIdCurrencyByCode(code2));
 
             stmt.executeUpdate();
         }
@@ -74,10 +73,14 @@ public class ExchangeRateDao {
 
         try (Connection conn = DriverManager.getConnection(BdConfig.URL)) {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, findIdCurrencyByCode(code1));
-            stmt.setInt(2, findIdCurrencyByCode(code2));
+            stmt.setInt(1, currencyDAO.getIdCurrencyByCode(code1));
+            stmt.setInt(2, currencyDAO.getIdCurrencyByCode(code2));
 
             ResultSet rs = stmt.executeQuery();
+
+            if (!rs.next()) {
+                return Optional.empty();
+            }
 
             return Optional.of(exchangeRateMapper.mapRowToExchangeRate(rs));
         }
@@ -90,12 +93,4 @@ public class ExchangeRateDao {
             return Optional.empty();
         }
     }
-
-    private Integer findIdCurrencyByCode(String code) throws SQLException, CurrencyException {
-        return currencyDAO.findCurrencyByCode(code)
-                .orElseThrow(
-                        () -> new CurrencyException("Валюта не найдена " + code))
-                .getId();
-    }
-
 }

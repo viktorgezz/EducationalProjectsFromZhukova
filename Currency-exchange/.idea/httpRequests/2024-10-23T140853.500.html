@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head><title>HTTP Status 500 – Внутренняя ошибка сервера</title>
+    <style type="text/css">body {
+        font-family: Tahoma, Arial, sans-serif;
+    }
+
+    h1, h2, h3, b {
+        color: white;
+        background-color: #525D76;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    a {
+        color: black;
+    }
+
+    .line {
+        height: 1px;
+        background-color: #525D76;
+        border: none;
+    }</style>
+</head>
+<body><h1>HTTP Status 500 – Внутренняя ошибка сервера</h1>
+<hr class="line"/>
+<p><b>Type</b> Exception Report</p>
+<p><b>Message</b> No value present</p>
+<p><b>Description</b> The server encountered an unexpected condition that prevented it from fulfilling the request.</p>
+<p><b>Exception</b></p>
+<pre>java.util.NoSuchElementException: No value present
+	java.base&#47;java.util.Optional.orElseThrow(Optional.java:377)
+	ru.viktorgezz.mapper.ExchangeRateMapper.mapRowToExchangeRate(ExchangeRateMapper.java:19)
+	ru.viktorgezz.dao.ExchangeRateDao.findExchangeRate(ExchangeRateDao.java:80)
+	ru.viktorgezz.dao.ExchangeRateDao.findExchangeRateSafely(ExchangeRateDao.java:86)
+	ru.viktorgezz.servlet.ExchangeRateServlet.doGet(ExchangeRateServlet.java:42)
+	jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	ru.viktorgezz.servlet.ExchangeRateServlet.service(ExchangeRateServlet.java:97)
+	jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+</pre>
+<p><b>Note</b> The full stack trace of the root cause is available in the server logs.</p>
+<hr class="line"/>
+<h3>Apache Tomcat/10.1.28</h3></body>
+</html>

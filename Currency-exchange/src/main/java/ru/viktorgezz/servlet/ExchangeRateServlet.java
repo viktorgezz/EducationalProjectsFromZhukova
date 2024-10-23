@@ -6,13 +6,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.ws.rs.core.MediaType;
-import ru.viktorgezz.dto.ExchangeRateDto;
+import ru.viktorgezz.util.AcceptParam;
 import ru.viktorgezz.util.JsonHandler;
 import ru.viktorgezz.util.PathInfo;
 import ru.viktorgezz.dao.ExchangeRateDao;
 import ru.viktorgezz.model.ExchangeRate;
 import ru.viktorgezz.util.exception.CurrencyException;
 import ru.viktorgezz.util.exception.ExchangeRateException;
+import ru.viktorgezz.util.exception.ParamException;
 import ru.viktorgezz.validate.CurrencyValidation;
 
 import java.io.IOException;
@@ -60,6 +61,12 @@ public class ExchangeRateServlet extends HttpServlet {
 
     protected void doPatch(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
+        double rate = 1;
+        try {
+            rate = Double.parseDouble(AcceptParam.getFirstParam(req));
+        } catch (ParamException e) {
+            jsonHandler.send(e.getMessage(), resp, 500);
+        }
         try {
             currencyValidation.validateCurrencyCodes(pathInfo.getInfoWithoutSlash(req));
         } catch (CurrencyException e) {
@@ -67,7 +74,6 @@ public class ExchangeRateServlet extends HttpServlet {
         }
         String code1 = pathInfo.getFirstCodeOutOfTwo(req);
         String code2 = pathInfo.getSecondCodeOutOfTwo(req);
-        Double rate = jsonHandler.get(req.getReader(), ExchangeRateDto.class).getRate();
 
         try {
             if (exchangeRateDao.findExchangeRate(code1, code2).isPresent()) {

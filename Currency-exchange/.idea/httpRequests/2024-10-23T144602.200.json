@@ -1,0 +1,32 @@
+[
+  {
+    "name": "US Dollar",
+    "code": "USD",
+    "sign": "$"
+  },
+  {
+    "name": "Euro",
+    "code": "EUR",
+    "sign": "€"
+  },
+  {
+    "name": "Russian Ruble",
+    "code": "RUB",
+    "sign": "₽"
+  },
+  {
+    "name": "Zloty",
+    "code": "PLN",
+    "sign": "zł"
+  },
+  {
+    "name": "Won",
+    "code": "KRW",
+    "sign": "₩"
+  },
+  {
+    "name": "Yan",
+    "code": "YAN",
+    "sign": "U"
+  }
+]
