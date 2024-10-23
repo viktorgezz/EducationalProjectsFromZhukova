@@ -1,0 +1,16 @@
+{
+  "id": 0,
+  "baseCurrency": {
+    "id": 0,
+    "name": null,
+    "code": null,
+    "sign": null
+  },
+  "targetCurrency": {
+    "id": 0,
+    "name": null,
+    "code": null,
+    "sign": null
+  },
+  "rate": 0.0
+}
