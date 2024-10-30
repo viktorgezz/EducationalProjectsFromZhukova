@@ -10,44 +10,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c5d8665-a880-4c1d-ad16-8f187a578534" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-11T102827.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-11T102841.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-11T103351.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-11T104255.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-11T104617.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-11T120303.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-11T120419.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-11T120438.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-11T120951.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-11T121058.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-11T122115.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-13T130352.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-13T130401.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-13T130831.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-13T130928.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-13T131451.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-13T131625.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-13T131630.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-13T131631.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-13T131633.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-13T131650.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-13T151231.500.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-23T171712.200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-23T171741.200.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_10_2024_10_07__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_10_2024_10_07__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_10_2024_10_07__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_10_2024_10_07__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_10_2024_10_07_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_10_2024_10_07__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/database.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dao/CurrencyDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dao/CurrencyDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dao/ExchangeRateDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dao/ExchangeRateDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/mapper/CurrencyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/mapper/CurrencyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dto/ExchangeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dto/ExchangeDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dto/ExchangeRateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dto/ExchangeRateDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/mapper/ExchangeRateMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/mapper/ExchangeRateMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/model/Currency.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/model/Currency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/model/Exchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/model/Exchange.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/model/ExchangeRate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/model/ExchangeRate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/CurrenciesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/CurrenciesServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/ExchangeRateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/ExchangeRateServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/ExchangeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/ExchangeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/exception/ParamException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/exception/ParamException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.http" beforeDir="false" afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/AcceptParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/AcceptParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/JsonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/JsonHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/SearchCurrencyPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/SearchCurrencyPair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/converter/ExchangeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/converter/ExchangeConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/validate/CurrencyValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/validate/CurrencyValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/validate/ExchangeRateValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/validate/ExchangeRateValidation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +60,7 @@
     <setting file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk-17/lib/src.zip!/java.base/java/lang/Throwable.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk-17/lib/src.zip!/java.sql/java/sql/ResultSet.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk-17/lib/src.zip!/java.sql/java/sql/SQLException.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.13.0/jackson-databind-2.13.0.jar!/com/fasterxml/jackson/databind/ObjectMapper.class" root0="SKIP_INSPECTION" />
   </component>
   <component name="HttpClientSelectedEnvironments">
     <file url="jar://$APPLICATION_HOME_DIR$/plugins/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/requests/collection/requests-with-authorization.http" environment="test" />
@@ -98,6 +83,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 6
@@ -108,45 +96,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "HTTP Request.test | #1.executor": "Run",
-    "HTTP Request.test | #3 (1).executor": "Run",
-    "HTTP Request.test | #4.executor": "Run",
-    "HTTP Request.test | #5.executor": "Run",
-    "HTTP Request.test | #6.executor": "Run",
-    "HTTP Request.test | #7.executor": "Run",
-    "HTTP Request.test | #8.executor": "Run",
-    "HTTP Request.test | #9.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Tomcat Server.Tomcat 10.1.28.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "currency-exchange",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;HTTP Request.test | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #3 (1).executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #4.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #5.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #6.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #7.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #8.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #9.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Currency-exchange [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.28.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;currency-exchange&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vikto/projectsJava/java-backend-learning-course-Zhukov/Currency-exchange&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vikto\projectsJava\java-backend-learning-course-Zhukov\Currency-exchange" />
       <recent name="C:\Users\vikto\projectsJava\java-backend-learning-course-Zhukov\Currency-exchange\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.28">
+  <component name="RunManager">
     <configuration name="test | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -250,23 +240,6 @@
         </option>
       </method>
     </configuration>
-    <list>
-      <item itemvalue="HTTP Request.test | #1" />
-      <item itemvalue="HTTP Request.test | #6" />
-      <item itemvalue="HTTP Request.test | #9" />
-      <item itemvalue="HTTP Request.test | #4" />
-      <item itemvalue="HTTP Request.test | #5" />
-      <item itemvalue="Tomcat Server.Tomcat 10.1.28" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="HTTP Request.test | #6" />
-        <item itemvalue="HTTP Request.test | #1" />
-        <item itemvalue="HTTP Request.test | #9" />
-        <item itemvalue="HTTP Request.test | #5" />
-        <item itemvalue="HTTP Request.test | #4" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -312,6 +285,11 @@
       <workItem from="1729598793373" duration="38000" />
       <workItem from="1729598865556" duration="4049000" />
       <workItem from="1729667443884" duration="36000" />
+      <workItem from="1729782825681" duration="3789000" />
+      <workItem from="1729797629203" duration="334000" />
+      <workItem from="1729837521493" duration="29000" />
+      <workItem from="1729837571263" duration="6271000" />
+      <workItem from="1729915943754" duration="30000" />
     </task>
     <servers />
   </component>

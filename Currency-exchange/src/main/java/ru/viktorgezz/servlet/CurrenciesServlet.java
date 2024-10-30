@@ -6,11 +6,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.ws.rs.core.MediaType;
+import ru.viktorgezz.util.AcceptParam;
 import ru.viktorgezz.util.JsonHandler;
 import ru.viktorgezz.dao.CurrencyDao;
 import ru.viktorgezz.dto.CurrencyDto;
 import ru.viktorgezz.util.exception.CurrencyException;
-import ru.viktorgezz.util.exception.ExchangeRateException;
+import ru.viktorgezz.util.exception.ParamException;
 import ru.viktorgezz.util.exception.RequestReaderException;
 import ru.viktorgezz.validate.CurrencyValidation;
 
@@ -28,21 +29,32 @@ public class CurrenciesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType(MediaType.APPLICATION_JSON);
-        List<CurrencyDto> currenciesDto = null;
+
+        List<CurrencyDto> currenciesDto;
         try {
             currenciesDto = currencyDAO.index();
         } catch (SQLException e) {
             jsonHandler.send(e.getMessage(), resp, 500);
+            return;
         }
+
         jsonHandler.send(currenciesDto, resp, 200);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        CurrencyDto currencyDTO = jsonHandler.get(req.getReader(), CurrencyDto.class);
+
+        CurrencyDto currencyDto;
         try {
-            currencyValidation.validateCurrencies(currencyDTO);
+            currencyDto = AcceptParam.getClassFromParams(req, CurrencyDto.class);
+        } catch (ParamException e) {
+            jsonHandler.send(e.getMessage(), resp, 500);
+            return;
+        }
+
+        try {
+            currencyValidation.validateCurrencies(currencyDto);
         } catch (RequestReaderException e) {
             jsonHandler.send(e.getMessage(), resp, 400);
             return;
@@ -55,8 +67,8 @@ public class CurrenciesServlet extends HttpServlet {
         }
 
         try {
-            currencyDAO.save(currencyDTO);
-            jsonHandler.send("Пользователь сохранён", resp, 201);
+            currencyDAO.save(currencyDto);
+            jsonHandler.send("Валюта сохранена", resp, 201);
         } catch (SQLException e) {
             jsonHandler.send(e.getMessage(), resp, 500);
             return;

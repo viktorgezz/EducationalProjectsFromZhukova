@@ -16,7 +16,7 @@ public class ExchangeRateMapper {
                 .setId(rs.getInt("id"))
                 .setBaseCurrency(currencyDAO.getCurrencyById(rs.getInt("base_currency_id")).orElseThrow())
                 .setTargetCurrency(currencyDAO.getCurrencyById(rs.getInt("target_currency_id")).orElseThrow())
-                .setRate(rs.getDouble("rate"))
+                .setRate(rs.getBigDecimal("rate"))
                 .build();
     }
 }

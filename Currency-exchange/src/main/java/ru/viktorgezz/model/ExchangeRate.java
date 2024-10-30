@@ -1,5 +1,7 @@
 package ru.viktorgezz.model;
 
+import java.math.BigDecimal;
+
 public class ExchangeRate {
 
     private int id;
@@ -8,7 +10,7 @@ public class ExchangeRate {
 
     private Currency targetCurrency;
 
-    private Double rate;
+    private BigDecimal rate;
 
     public ExchangeRate() {
     }
@@ -44,17 +46,11 @@ public class ExchangeRate {
         this.targetCurrency = targetCurrency;
     }
 
-    public Double getRate() {
+    public BigDecimal getRate() {
         return rate;
     }
 
-    public void setRate(Double rate) {
-        this.rate = rate;
-    }
-
-    public ExchangeRate(Currency baseCurrency, Currency targetCurrency, Double rate) {
-        this.baseCurrency = baseCurrency;
-        this.targetCurrency = targetCurrency;
+    public void setRate(BigDecimal rate) {
         this.rate = rate;
     }
 
@@ -72,7 +68,7 @@ public class ExchangeRate {
         private int id;
         private Currency baseCurrency;
         private Currency targetCurrency;
-        private Double rate;
+        private BigDecimal rate;
 
         public Builder setId(int id) {
             this.id = id;
@@ -89,7 +85,7 @@ public class ExchangeRate {
             return this;
         }
 
-        public Builder setRate(Double rate) {
+        public Builder setRate(BigDecimal rate) {
             this.rate = rate;
             return this;
         }

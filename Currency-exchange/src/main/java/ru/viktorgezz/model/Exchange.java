@@ -1,13 +1,15 @@
 package ru.viktorgezz.model;
 
+import java.math.BigDecimal;
+
 public class Exchange {
     private int id;
 
     private ExchangeRate exchangeRate;
 
-    private Double amount;
+    private BigDecimal amount;
 
-    private Double convertedAmount;
+    private BigDecimal convertedAmount;
 
     public Exchange() {
     }
@@ -35,19 +37,19 @@ public class Exchange {
         this.exchangeRate = exchangeRate;
     }
 
-    public Double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public Double getConvertedAmount() {
+    public BigDecimal getConvertedAmount() {
         return convertedAmount;
     }
 
-    public void setConvertedAmount(Double convertedAmount) {
+    public void setConvertedAmount(BigDecimal convertedAmount) {
         this.convertedAmount = convertedAmount;
     }
 
@@ -63,8 +65,8 @@ public class Exchange {
     public static class Builder {
         private int id;
         private ExchangeRate exchangeRate;
-        private Double amount;
-        private Double convertedAmount;
+        private BigDecimal amount;
+        private BigDecimal convertedAmount;
 
         public Builder setId(int id) {
             this.id = id;
@@ -76,12 +78,12 @@ public class Exchange {
             return this;
         }
 
-        public Builder setAmount(Double amount) {
+        public Builder setAmount(BigDecimal amount) {
             this.amount = amount;
             return this;
         }
 
-        public Builder setConvertedAmount(Double convertedAmount) {
+        public Builder setConvertedAmount(BigDecimal convertedAmount) {
             this.convertedAmount = convertedAmount;
             return this;
         }

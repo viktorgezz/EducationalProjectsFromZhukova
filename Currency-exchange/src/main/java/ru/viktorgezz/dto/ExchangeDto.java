@@ -2,13 +2,15 @@ package ru.viktorgezz.dto;
 
 import ru.viktorgezz.model.ExchangeRate;
 
+import java.math.BigDecimal;
+
 public class ExchangeDto {
 
     private ExchangeRate exchangeRate;
 
-    private Double amount;
+    private BigDecimal amount;
 
-    private Double convertedAmount;
+    private BigDecimal convertedAmount;
 
     public ExchangeDto() {
     }
@@ -27,19 +29,19 @@ public class ExchangeDto {
         this.exchangeRate = exchangeRate;
     }
 
-    public Double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public Double getConvertedAmount() {
+    public BigDecimal getConvertedAmount() {
         return convertedAmount;
     }
 
-    public void setConvertedAmount(Double convertedAmount) {
+    public void setConvertedAmount(BigDecimal convertedAmount) {
         this.convertedAmount = convertedAmount;
     }
 
@@ -54,20 +56,20 @@ public class ExchangeDto {
 
     public static class Builder {
         private ExchangeRate exchangeRate;
-        private Double amount;
-        private Double convertedAmount;
+        private BigDecimal amount;
+        private BigDecimal convertedAmount;
 
         public Builder setExchangeRate(ExchangeRate exchangeRate) {
             this.exchangeRate = exchangeRate;
             return this;
         }
 
-        public Builder setAmount(Double amount) {
+        public Builder setAmount(BigDecimal amount) {
             this.amount = amount;
             return this;
         }
 
-        public Builder setConvertedAmount(Double convertedAmount) {
+        public Builder setConvertedAmount(BigDecimal convertedAmount) {
             this.convertedAmount = convertedAmount;
             return this;
         }

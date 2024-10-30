@@ -2,11 +2,13 @@ package ru.viktorgezz.util;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 public class JsonHandler {
 
@@ -33,5 +35,10 @@ public class JsonHandler {
             throw new IOException("Invalid input data");
         }
         return objectMapper.readValue(reader, clazz); // добавить чтенние данного исключения
+    }
+
+    public <T> T getClassFromString(Map map, Class<T> clazz) throws IOException {
+        String jsonString = objectMapper.writeValueAsString(map);
+        return objectMapper.readValue(jsonString, clazz);
     }
 }

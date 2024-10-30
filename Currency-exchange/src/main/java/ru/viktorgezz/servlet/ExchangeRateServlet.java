@@ -17,6 +17,8 @@ import ru.viktorgezz.util.exception.ParamException;
 import ru.viktorgezz.validate.CurrencyValidation;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -43,7 +45,7 @@ public class ExchangeRateServlet extends HttpServlet {
             Optional<ExchangeRate> exchangeRateOpt = exchangeRateDao.findExchangeRateSafely(code1, code2);
             if (exchangeRateOpt.isEmpty()) {
                 exchangeRateOpt = exchangeRateDao.findExchangeRate(code2, code1);
-                exchangeRateOpt.orElseThrow().setRate(1 / exchangeRateOpt.get().getRate());
+                exchangeRateOpt.orElseThrow().setRate(new BigDecimal(1).divide(exchangeRateOpt.get().getRate(), 3, RoundingMode.HALF_UP));
             }
             ExchangeRate exchangeRate = exchangeRateOpt
                     .orElseThrow(() -> new ExchangeRateException("Обменный курс для пары не найден")); // убрать в метод валидации
@@ -61,16 +63,18 @@ public class ExchangeRateServlet extends HttpServlet {
 
     protected void doPatch(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        double rate = 1;
+        double rate;
         try {
-            rate = Double.parseDouble(AcceptParam.getFirstParam(req));
+            rate = Double.parseDouble(AcceptParam.getFirstParam(req, "rate"));
         } catch (ParamException e) {
             jsonHandler.send(e.getMessage(), resp, 500);
+            return;
         }
         try {
             currencyValidation.validateCurrencyCodes(pathInfo.getInfoWithoutSlash(req));
         } catch (CurrencyException e) {
             jsonHandler.send(e.getMessage(), resp, 400);
+            return;
         }
         String code1 = pathInfo.getFirstCodeOutOfTwo(req);
         String code2 = pathInfo.getSecondCodeOutOfTwo(req);
@@ -82,6 +86,7 @@ public class ExchangeRateServlet extends HttpServlet {
             } else if (exchangeRateDao.findExchangeRate(code2, code1).isPresent()) {
                 exchangeRateDao.update(code2, code1, 1 / rate);
                 jsonHandler.send("Успех", resp, 200);
+                return;
             } else {
                 throw new ExchangeRateException("Обменный курс для пары не найден");
             }

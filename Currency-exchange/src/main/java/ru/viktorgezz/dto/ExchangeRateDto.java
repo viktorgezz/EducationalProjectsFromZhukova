@@ -2,13 +2,15 @@ package ru.viktorgezz.dto;
 
 import ru.viktorgezz.model.Currency;
 
+import java.math.BigDecimal;
+
 public class ExchangeRateDto {
 
     private Currency baseCurrency;
 
     private Currency targetCurrency;
 
-    private Double rate;
+    private BigDecimal rate;
 
     public ExchangeRateDto() {
     }
@@ -35,11 +37,11 @@ public class ExchangeRateDto {
         this.targetCurrency = targetCurrency;
     }
 
-    public Double getRate() {
+    public BigDecimal getRate() {
         return rate;
     }
 
-    public void setRate(Double rate) {
+    public void setRate(BigDecimal rate) {
         this.rate = rate;
     }
 
@@ -55,7 +57,7 @@ public class ExchangeRateDto {
     public static class Builder {
         private Currency baseCurrency;
         private Currency targetCurrency;
-        private Double rate;
+        private BigDecimal rate;
 
         public Builder setBaseCurrency(Currency baseCurrency) {
             this.baseCurrency = baseCurrency;
@@ -67,7 +69,7 @@ public class ExchangeRateDto {
             return this;
         }
 
-        public Builder setRate(Double rate) {
+        public Builder setRate(BigDecimal rate) {
             this.rate = rate;
             return this;
         }

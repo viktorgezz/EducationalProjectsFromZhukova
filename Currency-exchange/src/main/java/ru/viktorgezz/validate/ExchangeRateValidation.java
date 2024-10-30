@@ -8,6 +8,7 @@ import ru.viktorgezz.util.exception.CurrencyException;
 import ru.viktorgezz.util.exception.ExchangeRateException;
 import ru.viktorgezz.util.exception.RequestReaderException;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 
 public class ExchangeRateValidation {
@@ -21,7 +22,7 @@ public class ExchangeRateValidation {
         validateCurrencyPairExists(exchangeRateDto.getBaseCurrency().getCode(), exchangeRateDto.getTargetCurrency().getCode());
     }
 
-    private void validateEmptyFields(Currency base, Currency target, Double rate) throws RequestReaderException {
+    private void validateEmptyFields(Currency base, Currency target, BigDecimal rate) throws RequestReaderException {
         StringBuilder errors = new StringBuilder();
 
         if (base == null) {
@@ -30,7 +31,7 @@ public class ExchangeRateValidation {
         if (target == null) {
             errors.append("Отсутствует нужное поле формы targetCurrency\n");
         }
-        if (rate.isNaN()) {
+        if (rate == null) {
             errors.append("Отсутствует нужное поле формы rate\n");
         }
 

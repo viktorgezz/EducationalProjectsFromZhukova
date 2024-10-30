@@ -19,27 +19,27 @@ public class CurrencyValidation {
 
     public void validateCurrencyCode(String code) throws CurrencyException {
         if (code.isEmpty()) {
-            throw new CurrencyException("Код валюты отсутствует в адресе");
+            throw new CurrencyException("Код валюты отсутствует в адресе ");
         }
     }
 
     public void validateCurrencyCodes(String codes) throws CurrencyException {
         if (codes.length() != 6) {
-            throw new CurrencyException("Код валюты отсутствует в адресе или имеет неправильную запись");
+            throw new CurrencyException("Код валюты отсутствует в адресе или имеет неправильную запись ");
         }
     }
 
     private void validateEmptyFields(String name, String sign, String code) throws RequestReaderException {
         StringBuilder errors = new StringBuilder();
 
-        if (name.isEmpty()) {
-            errors.append("Отсутствует нужное поле формы name\n");
+        if (name == null || name.isEmpty()) {
+            errors.append("Отсутствует нужное поле формы name ");
         }
-        if (sign.isEmpty()) {
-            errors.append("Отсутствует нужное поле формы sign\n");
+        if (sign == null || sign.isEmpty()) {
+            errors.append("Отсутствует нужное поле формы sign ");
         }
-        if (code.isEmpty()) {
-            errors.append("Отсутствует нужное поле формы code\n");
+        if (code == null || code.isEmpty()) {
+            errors.append("Отсутствует нужное поле формы code ");
         }
 
         if (!errors.toString().isEmpty()) {
@@ -51,16 +51,16 @@ public class CurrencyValidation {
         StringBuilder errors = new StringBuilder();
 
         if (name.length() > 100) {
-            errors.append("Большая длина поле name\n");
+            errors.append("Большая длина поле name ");
         }
         if (code.length() != 3) {
-            errors.append("Длина code не равна трем\n");
+            errors.append("Длина code не равна трем ");
         }
         if (code.matches(".*[a-z].*")) {
-            errors.append("code содержит буквы в нижнем регистре\n");
+            errors.append("code содержит буквы в нижнем регистре ");
         }
         if (sign.length() > 3) {
-            errors.append("Большая длина поле sign\n");
+            errors.append("Большая длина поле sign ");
         }
 
         if (!errors.toString().isEmpty()) {
@@ -70,7 +70,7 @@ public class CurrencyValidation {
 
     private void validateExistsCurrency(String code) throws CurrencyException, SQLException {
         if (currencyDao.findCurrencyDtoByCode(code).isPresent()) {
-            throw new CurrencyException("Валюта с таким кодом уже существует");
+            throw new CurrencyException("Валюта с таким кодом уже существует ");
         }
     }
 }

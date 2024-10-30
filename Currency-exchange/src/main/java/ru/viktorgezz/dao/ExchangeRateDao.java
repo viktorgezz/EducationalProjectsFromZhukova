@@ -49,7 +49,7 @@ public class ExchangeRateDao {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, exchangeRateDto.getBaseCurrency().getId());
             stmt.setInt(2,exchangeRateDto.getTargetCurrency().getId());
-            stmt.setDouble(3, exchangeRateDto.getRate());
+            stmt.setBigDecimal(3, exchangeRateDto.getRate());
 
             stmt.executeUpdate();
         }

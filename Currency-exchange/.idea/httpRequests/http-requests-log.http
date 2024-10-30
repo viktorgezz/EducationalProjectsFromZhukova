@@ -4,6 +4,16 @@ Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 content-length: 0
 
+<> 2024-10-25T094153.500.html
+
+###
+
+PATCH http://localhost:8080/exchangeRate/USDRUB?rate=91.2
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
 <> 2024-10-23T172857.500.html
 
 ###
@@ -477,15 +487,6 @@ User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 <> 2024-09-23T171749.200.json
-
-###
-
-GET http://localhost:8080/currency/USD
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2024-09-23T171741.200.json
 
 ###
 

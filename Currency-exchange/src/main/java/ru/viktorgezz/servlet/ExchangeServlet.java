@@ -15,6 +15,7 @@ import ru.viktorgezz.util.converter.ExchangeConverter;
 import ru.viktorgezz.util.exception.CurrencyException;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -29,7 +30,7 @@ public class ExchangeServlet extends HttpServlet {
         resp.setContentType(MediaType.APPLICATION_JSON);
         String formCode = req.getParameter("from");
         String toCode = req.getParameter("to");
-        double amount = Double.parseDouble(req.getParameter("amount"));
+        BigDecimal amount = new BigDecimal(req.getParameter("amount"));
 
         Optional<ExchangeRate> exchangeRateOpt = Optional.empty();
         try {
