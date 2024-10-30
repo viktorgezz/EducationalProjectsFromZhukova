@@ -1,4 +1,4 @@
-package ru.viktorgezz.mapper;
+package ru.viktorgezz.util.mapper;
 
 import ru.viktorgezz.dao.CurrencyDao;
 import ru.viktorgezz.dto.ExchangeRateDto;

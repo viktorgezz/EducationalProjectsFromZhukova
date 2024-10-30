@@ -2,9 +2,8 @@ package ru.viktorgezz.dao;
 
 import ru.viktorgezz.util.BdConfig;
 import ru.viktorgezz.dto.ExchangeRateDto;
-import ru.viktorgezz.mapper.ExchangeRateMapper;
+import ru.viktorgezz.util.mapper.ExchangeRateMapper;
 import ru.viktorgezz.model.ExchangeRate;
-import ru.viktorgezz.util.converter.ExchangeConverter;
 import ru.viktorgezz.util.converter.ExchangeRateConverter;
 import ru.viktorgezz.util.exception.CurrencyException;
 

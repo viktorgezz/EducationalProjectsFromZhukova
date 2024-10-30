@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.ws.rs.core.MediaType;
-import ru.viktorgezz.mapper.ExchangeRateMapper;
+import ru.viktorgezz.util.mapper.ExchangeRateMapper;
 import ru.viktorgezz.util.JsonHandler;
 import ru.viktorgezz.util.SearchCurrencyPair;
 import ru.viktorgezz.dto.ExchangeDto;

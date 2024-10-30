@@ -2,7 +2,7 @@ package ru.viktorgezz.dao;
 
 import ru.viktorgezz.util.BdConfig;
 import ru.viktorgezz.dto.CurrencyDto;
-import ru.viktorgezz.mapper.CurrencyMapper;
+import ru.viktorgezz.util.mapper.CurrencyMapper;
 import ru.viktorgezz.model.Currency;
 import ru.viktorgezz.util.converter.CurrencyConverter;
 import ru.viktorgezz.util.exception.CurrencyException;

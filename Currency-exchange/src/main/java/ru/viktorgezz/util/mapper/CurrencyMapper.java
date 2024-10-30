@@ -1,4 +1,4 @@
-package ru.viktorgezz.mapper;
+package ru.viktorgezz.util.mapper;
 
 import ru.viktorgezz.dto.CurrencyDto;
 import ru.viktorgezz.model.Currency;

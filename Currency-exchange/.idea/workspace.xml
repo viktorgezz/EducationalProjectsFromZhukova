@@ -10,6 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c5d8665-a880-4c1d-ad16-8f187a578534" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gigaide/gigaide.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-10-25T094153.500.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-09-23T171741.200.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -17,10 +22,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_10_2024_10_07__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/database.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dao/CurrencyDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dao/CurrencyDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dao/ExchangeRateDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dao/ExchangeRateDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dto/ExchangeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dto/ExchangeDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dto/ExchangeRateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/dto/ExchangeRateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/mapper/ExchangeRateMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/mapper/ExchangeRateMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/mapper/CurrencyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/mapper/CurrencyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/mapper/ExchangeRateMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/util/mapper/ExchangeRateMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/model/Exchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/model/Exchange.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/model/ExchangeRate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/model/ExchangeRate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/CurrenciesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/viktorgezz/servlet/CurrenciesServlet.java" afterDir="false" />
