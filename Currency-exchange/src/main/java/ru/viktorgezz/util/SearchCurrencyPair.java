@@ -43,6 +43,9 @@ public class SearchCurrencyPair {
     }
 
     public BigDecimal calculateConvertedAmount(ExchangeRate exchangeRate, BigDecimal amount) {
-        return exchangeRate.getRate().multiply(amount).setScale(3, RoundingMode.HALF_UP);
+        return exchangeRate
+                .getRate()
+                .multiply(amount)
+                .setScale(3, RoundingMode.HALF_UP);
     }
 }

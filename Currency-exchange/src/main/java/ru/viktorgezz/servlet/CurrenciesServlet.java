@@ -29,16 +29,13 @@ public class CurrenciesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType(MediaType.APPLICATION_JSON);
-
-        List<CurrencyDto> currenciesDto;
         try {
-            currenciesDto = currencyDAO.index();
+            List<CurrencyDto> currenciesDto = currencyDAO.index();
+            jsonHandler.send(currenciesDto, resp, 200);
         } catch (SQLException e) {
             jsonHandler.send(e.getMessage(), resp, 500);
             return;
         }
-
-        jsonHandler.send(currenciesDto, resp, 200);
     }
 
     @Override

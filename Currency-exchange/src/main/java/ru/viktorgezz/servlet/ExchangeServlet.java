@@ -28,19 +28,20 @@ public class ExchangeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType(MediaType.APPLICATION_JSON);
-        String formCode = req.getParameter("from");
-        String toCode = req.getParameter("to");
         BigDecimal amount = new BigDecimal(req.getParameter("amount"));
 
-        Optional<ExchangeRate> exchangeRateOpt = Optional.empty();
+        ExchangeRate exchangeRate;
         try {
-            exchangeRateOpt = searchCurrencyPair.perform(formCode, toCode);
+            exchangeRate = searchCurrencyPair.perform(
+                    req.getParameter("from"), req.getParameter("to"))
+                    .orElseThrow();
         } catch (CurrencyException e) {
             jsonHandler.send(e.getMessage(), resp, 404);
+            return;
         } catch (SQLException e) {
             jsonHandler.send(e.getMessage(), resp, 500);
+            return;
         }
-        ExchangeRate exchangeRate = exchangeRateOpt.orElseThrow();
 
         ExchangeDto exchangeDTO = ExchangeConverter
                 .convertPartsOfModelToDto(

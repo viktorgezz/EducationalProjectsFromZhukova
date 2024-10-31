@@ -28,13 +28,13 @@ public class ExchangeRatesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType(MediaType.APPLICATION_JSON);
-        List<ExchangeRateDto> exchangeRates = null;
         try {
-            exchangeRates = exchangeRateDAO.index();
+            List<ExchangeRateDto> exchangeRates = exchangeRateDAO.index();
+            jsonHandler.send(exchangeRates, resp, 200);
         } catch (SQLException e) {
             jsonHandler.send(e.getMessage(), resp, 500);
+            return;
         }
-        jsonHandler.send(exchangeRates, resp, 200);
     }
 
     @Override
@@ -46,12 +46,16 @@ public class ExchangeRatesServlet extends HttpServlet {
             exchangeRateValidation.validateExchangeRateDto(exchangeRateDto);
         } catch (RequestReaderException e) {
             jsonHandler.send(e.getMessage(), resp, 400);
+            return;
         } catch (CurrencyException e) {
             jsonHandler.send(e.getMessage(), resp, 404);
+            return;
         } catch (ExchangeRateException e) {
             jsonHandler.send(e.getMessage(), resp, 409);
+            return;
         } catch (SQLException e) {
             jsonHandler.send(e.getMessage(), resp, 500);
+            return;
         }
 
         try {
@@ -59,6 +63,7 @@ public class ExchangeRatesServlet extends HttpServlet {
             jsonHandler.send("Курс добавлен", resp, 201);
         } catch (SQLException e) {
             jsonHandler.send(e.getMessage(), resp, 500);
+            return;
         }
     }
 }

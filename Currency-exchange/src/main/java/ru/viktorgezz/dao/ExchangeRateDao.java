@@ -7,6 +7,7 @@ import ru.viktorgezz.model.ExchangeRate;
 import ru.viktorgezz.util.converter.ExchangeRateConverter;
 import ru.viktorgezz.util.exception.CurrencyException;
 
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,12 +55,12 @@ public class ExchangeRateDao {
         }
     }
 
-    public void update(String code1, String code2, double rate) throws SQLException, CurrencyException {
+    public void update(String code1, String code2, BigDecimal rate) throws SQLException, CurrencyException {
         String sql = "UPDATE Exchange_rates SET rate = ? WHERE base_currency_id = ? and target_currency_id = ?";
 
         try (Connection conn = DriverManager.getConnection(BdConfig.URL)) {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setDouble(1, rate);
+            stmt.setBigDecimal(1, rate);
             stmt.setInt(2, currencyDAO.getIdCurrencyByCode(code1));
             stmt.setInt(3, currencyDAO.getIdCurrencyByCode(code2));
 
