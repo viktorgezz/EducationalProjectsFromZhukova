@@ -4,29 +4,22 @@ import ru.viktorgezz.entity.Creature;
 import ru.viktorgezz.entity.Entity;
 import ru.viktorgezz.entity.Herbivore;
 import ru.viktorgezz.entity.Predator;
+import ru.viktorgezz.util.SearchNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-public class MapWorld {
+public class MapService implements EntityInstaller{
 
-    private final List<Creature> creatures = new ArrayList<>();
-    private GraphNode root;
+    private final SearchNode searchNode = new SearchNode();
 
-    public MapWorld() {
+    private final List<Creature> creatures;
+
+    public MapService(List<Creature> creatures) {
+        this.creatures = creatures;
     }
 
-    public void createWorld(int horizontalSize, int verticalSize) {
-        Size.setSize(horizontalSize, verticalSize);
-        root = new MapFactory().createMap();
-    }
-
-    public void addEntity(Entity entity, GraphNode node) {
-        entity.setNode(node);
-        node.setEntity(entity);
-        if (entity instanceof Creature)
-            creatures.add((Creature) entity);
-    }
 
     public void removeImmobileEntity(Entity entity) {
         entity.getNode().setEntity(null);
@@ -37,7 +30,7 @@ public class MapWorld {
         creatures.remove(creature);
     }
 
-    public void changePosition(GraphNode newNode, Creature creature) {
+    public void changePosition(Node newNode, Creature creature) {
         if (newNode != null && newNode.getEntity() == null) {
             creature.getNode().setEntity(null);
             creature.setNode(newNode);
@@ -45,12 +38,23 @@ public class MapWorld {
         }
     }
 
-    public List<Creature> getCreatures() {
-        return creatures;
+    private void addEntity(Entity entity, Node node) {
+        entity.setNode(node);
+        node.setEntity(entity);
+        if (entity instanceof Creature)
+            creatures.add((Creature) entity);
     }
 
-    public GraphNode getRoot() {
-        return root;
+    public void installEntityInNode(Entity entity, Node root) {
+        Optional<Node> emptyNode = searchNode.findEmptyNode(root);
+        if (emptyNode.isPresent()) {
+            Node node = emptyNode.get();
+            addEntity(entity, node);
+        }
+    }
+
+    public List<Creature> getCreatures() {
+        return creatures;
     }
 
     public Integer getCountHerbivore() {

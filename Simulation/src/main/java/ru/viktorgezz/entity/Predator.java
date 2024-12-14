@@ -1,7 +1,6 @@
 package ru.viktorgezz.entity;
 
-import ru.viktorgezz.map.GraphNode;
-import ru.viktorgezz.map.MapWorld;
+import ru.viktorgezz.map.Node;
 
 import java.util.List;
 import java.util.Random;
@@ -12,8 +11,7 @@ public class Predator extends Creature {
     private Integer damage = 1;
     private Integer numKillBeforeUpgrade = 2;
 
-    public Predator(MapWorld mapWorld) {
-        super(mapWorld);
+    public Predator() {
         setHp(2);
         setStep(1);
         setAge(0);
@@ -25,15 +23,15 @@ public class Predator extends Creature {
         growOld();
     }
 
-    private void attack(GraphNode nodeNearHerbivore) {
-        List<GraphNode> linkedNodes = searchGraph.getConnectNodesWithEntity(nodeNearHerbivore);
-        for (GraphNode node : linkedNodes) {
+    private void attack(Node nodeNearHerbivore) {
+        List<Node> linkedNodes = searchNode.getConnectNodesWithEntity(nodeNearHerbivore);
+        for (Node node : linkedNodes) {
             if (node != null && node.getEntity() != null && node.getEntity().getClass() == Herbivore.class) {
                 Herbivore herbivore = (Herbivore) node.getEntity();
                 herbivore.minusHp(damage);
 
                 if (herbivore.getHp() <= 0) {
-                    mapWorld.removeCreature(herbivore);
+                    mapService.removeCreature(herbivore);
                     developCharacteristic();
                 }
                 break;
@@ -65,11 +63,13 @@ public class Predator extends Creature {
 
         int numRandom = new Random().nextInt(5);
         if (getAge() == 150 && numRandom == 0)
-            mapWorld.removeCreature(this);
+            mapService.removeCreature(this);
     }
 
     public Integer getCountMurders() {
         return countMurders;
     }
+
+
 
 }

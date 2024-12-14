@@ -4,18 +4,18 @@ import ru.viktorgezz.entity.Entity;
 
 import java.util.Objects;
 
-public class GraphNode {
+public class Node {
 
     private Entity entity;
 
-    private GraphNode up;
-    private GraphNode down;
-    private GraphNode left;
-    private GraphNode right;
+    private Node up;
+    private Node down;
+    private Node left;
+    private Node right;
 
     private final Coordinates coordinates;
 
-    public GraphNode(Integer x, Integer y) {
+    public Node(Integer x, Integer y) {
         coordinates = new Coordinates(x, y);
     }
 
@@ -27,35 +27,35 @@ public class GraphNode {
         this.entity = entity;
     }
 
-    public GraphNode getUp() {
+    public Node getUp() {
         return up;
     }
 
-    public void setUp(GraphNode up) {
+    public void setUp(Node up) {
         this.up = up;
     }
 
-    public GraphNode getDown() {
+    public Node getDown() {
         return down;
     }
 
-    public void setDown(GraphNode down) {
+    public void setDown(Node down) {
         this.down = down;
     }
 
-    public GraphNode getLeft() {
+    public Node getLeft() {
         return left;
     }
 
-    public void setLeft(GraphNode left) {
+    public void setLeft(Node left) {
         this.left = left;
     }
 
-    public GraphNode getRight() {
+    public Node getRight() {
         return right;
     }
 
-    public void setRight(GraphNode right) {
+    public void setRight(Node right) {
         this.right = right;
     }
 
@@ -68,7 +68,7 @@ public class GraphNode {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        GraphNode node = (GraphNode) o;
+        Node node = (Node) o;
         return Objects.equals(coordinates, node.coordinates);
     }
 

@@ -9,7 +9,7 @@ import java.util.Queue;
 
 public class MapRender {
 
-    private final GraphNode root;
+    private final Node root;
 
     private static final String ANSI_RESET = "\u001b[0m";
     private static final String GREEN_COLOR = "\u001B[32m";
@@ -18,13 +18,13 @@ public class MapRender {
     private static final String GRAY_COLOR = "\u001B[38;5;245m";
     private static final String DARK_GREEN_COLOR = "\u001B[38;5;22m";
 
-    public MapRender(GraphNode root) {
+    public MapRender(Node root) {
         this.root = root;
     }
 
     public void printMap() {
-        Queue<GraphNode> queue = new LinkedList<>();
-        GraphNode node = root;
+        Queue<Node> queue = new LinkedList<>();
+        Node node = root;
 
         while (node != null) {
             while (true) {

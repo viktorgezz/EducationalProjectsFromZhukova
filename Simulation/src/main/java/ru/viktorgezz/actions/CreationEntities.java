@@ -1,63 +1,62 @@
 package ru.viktorgezz.actions;
 
-import ru.viktorgezz.SearchGraph;
 import ru.viktorgezz.entity.*;
-import ru.viktorgezz.map.GraphNode;
-import ru.viktorgezz.map.MapWorld;
-import ru.viktorgezz.map.Size;
+import ru.viktorgezz.map.EntityInstaller;
+import ru.viktorgezz.map.MapService;
+import ru.viktorgezz.map.Node;
 
-import java.util.*;
+import java.util.List;
 
 public class CreationEntities extends Action {
 
-    private static final SearchGraph searchGraph = new SearchGraph();
-
-    protected final static Integer NUM_HERBIVORE =
-            (int) Math.ceil(Size.VERTICAL_SIZE * Size.HORIZONTAL_SIZE * 0.04);
-
-    protected final static Integer NUM_PREDATOR =
-            (int) Math.ceil(Size.VERTICAL_SIZE * Size.HORIZONTAL_SIZE * 0.08);
-
-    private final static Integer NUM_TREE =
-            (int) Math.ceil(Size.VERTICAL_SIZE * Size.HORIZONTAL_SIZE * 0.04);
-
-    private final static Integer NUM_ROCK =
-            (int) Math.ceil(Size.VERTICAL_SIZE * Size.HORIZONTAL_SIZE * 0.04);
-
-    protected final static Integer NUM_GRASS =
-            (int) Math.ceil(Size.VERTICAL_SIZE * Size.HORIZONTAL_SIZE * 0.08);
-
-    public CreationEntities(MapWorld mapWorld) {
-        super(mapWorld);
+    private List<Creature> creatures;
+    public CreationEntities(int vertical, int horizontal, Node root, List<Creature> creatures) {
+        this.root = root;
+        this.creatures = creatures;
+        this.square = vertical * horizontal;
     }
 
-    protected void installEntityInNode(Entity entity) {
-        Optional<GraphNode> emptyNode = searchGraph.findEmptyNode(mapWorld.getRoot());
-        if (emptyNode.isPresent()) {
-            GraphNode node = emptyNode.get();
-            mapWorld.addEntity(entity, node);
-        }
-    }
+    protected  EntityInstaller entityInstaller = new MapService(creatures);
+
+    private Integer square; // ошибка
+
+    protected final Node root;
+
+    protected final Integer NUM_HERBIVORE =
+            (int) Math.ceil(square * 0.04);
+
+    protected final Integer NUM_PREDATOR =
+            (int) Math.ceil(square * 0.08);
+
+    private final Integer NUM_TREE =
+            (int) Math.ceil(square * 0.04);
+
+    private final Integer NUM_ROCK =
+            (int) Math.ceil(square * 0.04);
+
+    protected final Integer NUM_GRASS =
+            (int) Math.ceil(square * 0.08);
+
 
     public void perform() {
         for (int i = 0; i < NUM_HERBIVORE; i++) {
-            installEntityInNode(new Herbivore(mapWorld));
+            entityInstaller.installEntityInNode(new Herbivore(), root);
         }
 
         for (int i = 0; i < NUM_PREDATOR; i++) {
-            installEntityInNode(new Predator(mapWorld));
+            entityInstaller.installEntityInNode(new Predator(), root);
         }
 
         for (int i = 0; i < NUM_TREE; i++) {
-            installEntityInNode(new Tree());
+            entityInstaller.installEntityInNode(new Tree(), root);
         }
 
         for (int i = 0; i < NUM_ROCK; i++) {
-            installEntityInNode(new Rock());
+            entityInstaller.installEntityInNode(new Rock(), root);
         }
 
         for (int i = 0; i < NUM_GRASS; i++) {
-            installEntityInNode(new Grass());
+            entityInstaller.installEntityInNode(new Grass(), root);
         }
     }
 }

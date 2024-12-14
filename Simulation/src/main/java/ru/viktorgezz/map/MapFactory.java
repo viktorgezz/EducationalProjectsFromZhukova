@@ -2,22 +2,43 @@ package ru.viktorgezz.map;
 
 public class MapFactory {
 
-    private final Integer HORIZONTAL_SIZE = Size.HORIZONTAL_SIZE;
-    private final Integer VERTICAL_SIZE = Size.VERTICAL_SIZE;
+    private final Integer HORIZONTAL_SIZE;
+    private final Integer VERTICAL_SIZE;
+    private Node[][] storageNodes;
 
-    private final GraphNode[][] tempStorageNodes = new GraphNode[HORIZONTAL_SIZE][VERTICAL_SIZE];
+    private final Size size = new Size();
 
-    public GraphNode createMap() {
+    public MapFactory(int horizontal, int vertical) {
+        this.HORIZONTAL_SIZE = horizontal;
+        this.VERTICAL_SIZE = vertical;
+        size.horizontal = horizontal;
+        size.vertical = vertical;
+        create();
+    }
+
+    private void create() {
+        initStorageNodes();
         createNodes();
         linkNodes();
-        return tempStorageNodes[0][0];
+    }
+
+    public Node getRoot() {
+        return storageNodes[0][0];
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    private void initStorageNodes() {
+        storageNodes = new Node[HORIZONTAL_SIZE][VERTICAL_SIZE];
     }
 
 
     private void createNodes() {
         for (int i = 0; i < HORIZONTAL_SIZE; i++) {
             for (int j = 0; j < VERTICAL_SIZE; j++) {
-                tempStorageNodes[i][j] = (new GraphNode(j, i));
+                storageNodes[i][j] = (new Node(j, i));
             }
         }
     }
@@ -26,16 +47,16 @@ public class MapFactory {
         for (int i = 0; i < HORIZONTAL_SIZE; i++) {
             for (int j = 0; j < VERTICAL_SIZE; j++) {
                 if (i > 0) {
-                    tempStorageNodes[i][j].setLeft(tempStorageNodes[i - 1][j]);
+                    storageNodes[i][j].setLeft(storageNodes[i - 1][j]);
                 }
                 if (i < HORIZONTAL_SIZE - 1) {
-                    tempStorageNodes[i][j].setRight(tempStorageNodes[i + 1][j]);
+                    storageNodes[i][j].setRight(storageNodes[i + 1][j]);
                 }
                 if (j > 0) {
-                    tempStorageNodes[i][j].setUp(tempStorageNodes[i][j - 1]);
+                    storageNodes[i][j].setUp(storageNodes[i][j - 1]);
                 }
                 if (j < VERTICAL_SIZE - 1) {
-                    tempStorageNodes[i][j].setDown(tempStorageNodes[i][j + 1]);
+                    storageNodes[i][j].setDown(storageNodes[i][j + 1]);
                 }
             }
         }

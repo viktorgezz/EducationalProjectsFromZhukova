@@ -1,18 +1,17 @@
 package ru.viktorgezz.actions;
 
 import ru.viktorgezz.entity.Grass;
-import ru.viktorgezz.map.MapWorld;
-import ru.viktorgezz.map.Size;
+import ru.viktorgezz.map.Node;
 
 public class CreationGrass extends CreationEntities {
 
-    public CreationGrass(MapWorld mapWorld) {
-        super(mapWorld);
+    public CreationGrass(int vertical, int horizontal, Node root) {
+        super(vertical, horizontal, root);
     }
 
     public void perform() {
         for (int i = 0; i < NUM_GRASS; i++) {
-            installEntityInNode(new Grass());
+            entityInstaller.installEntityInNode(new Grass(), root);
         }
     }
 

@@ -1,8 +1,8 @@
 package ru.viktorgezz.entity;
 
-import ru.viktorgezz.SearchGraph;
-import ru.viktorgezz.map.GraphNode;
-import ru.viktorgezz.map.MapWorld;
+import ru.viktorgezz.util.SearchNode;
+import ru.viktorgezz.map.Node;
+import ru.viktorgezz.map.MapService;
 
 import java.util.*;
 
@@ -12,30 +12,29 @@ public abstract class Creature extends Entity {
     private Integer hp;
     private Integer age;
 
-    protected SearchGraph searchGraph = new SearchGraph();
-    protected final MapWorld mapWorld;
+    protected SearchNode searchNode = new SearchNode();
+    protected final MapService mapService = new MapService();
 
 
-    public Creature(MapWorld mapWorld) {
-        this.mapWorld = mapWorld;
+    public Creature() {
     }
 
     public abstract void playAction();
 
     protected <T extends Entity> void move(Class<T> targetClass,
                                            Runnable actionCreature) {
-        GraphNode currNode = getNode();
+        Node currNode = getNode();
 
-        Optional<Queue<GraphNode>> shortestPathOpt = searchGraph.findShortestPathToTarget(targetClass, currNode);
+        Optional<Queue<Node>> shortestPathOpt = searchNode.findShortestPathToTarget(targetClass, currNode);
 
         if (shortestPathOpt.isPresent()) {
-            Queue<GraphNode> shortestPath = shortestPathOpt.get();
+            Queue<Node> shortestPath = shortestPathOpt.get();
 
             if (shortestPath.isEmpty()) {
                 actionCreature.run();
             } else {
                 for (int i = 0; i < Math.min(getStep(), shortestPath.size()); i++) {
-                    mapWorld.changePosition(shortestPath.poll(), this);
+                    mapService.changePosition(shortestPath.poll(), this);
                 }
             }
         } else {
@@ -44,11 +43,11 @@ public abstract class Creature extends Entity {
     }
 
     protected void randomMove() {
-        List<GraphNode> linkedNodes = searchGraph.getConnectNodesWithNullEntity(this.getNode());
+        List<Node> linkedNodes = searchNode.getConnectNodesWithNullEntity(this.getNode());
 
         if (!linkedNodes.isEmpty()) {
             int randomIndexNode = new Random().nextInt(linkedNodes.size());
-            mapWorld.changePosition(linkedNodes.get(randomIndexNode), this);
+            mapService.changePosition(linkedNodes.get(randomIndexNode), this);
         }
     }
 

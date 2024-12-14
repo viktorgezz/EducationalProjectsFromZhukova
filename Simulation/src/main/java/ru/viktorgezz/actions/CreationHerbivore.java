@@ -1,15 +1,16 @@
 package ru.viktorgezz.actions;
 
 import ru.viktorgezz.entity.Herbivore;
-import ru.viktorgezz.map.MapWorld;
+import ru.viktorgezz.map.Node;
 
 public class CreationHerbivore extends CreationEntities{
 
-    public CreationHerbivore(MapWorld mapWorld) {
-        super(mapWorld);
+
+    public CreationHerbivore(int vertical, int horizontal, Node root) {
+        super(vertical, horizontal, root);
     }
 
     public void perform() {
-        installEntityInNode(new Herbivore(mapWorld));
+        entityInstaller.installEntityInNode(new Herbivore(), root);
     }
 }

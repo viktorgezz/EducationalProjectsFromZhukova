@@ -1,15 +1,16 @@
 package ru.viktorgezz.actions;
 
-import ru.viktorgezz.map.MapWorld;
+import ru.viktorgezz.map.Node;
 
 public class WorldPopulationController extends CreationEntities {
 
-    public WorldPopulationController(MapWorld mapWorld) {
-        super(mapWorld);
+
+    public WorldPopulationController(int vertical, int horizontal, Node root) {
+        super(vertical, horizontal, root);
     }
 
     public boolean isHerbivoreGenerationRequired() {
-        return mapWorld.getCountHerbivore() < NUM_HERBIVORE;
+        return entityInstaller.getCountHerbivore() < NUM_HERBIVORE;
     }
 
     public boolean isGrassGenerationRequired(int countTurn) {
@@ -17,6 +18,6 @@ public class WorldPopulationController extends CreationEntities {
     }
 
     public boolean isPredatorGenerationRequired() {
-        return mapWorld.getCountPredator() < NUM_PREDATOR / 2;
+        return entityInstaller.getCountPredator() < NUM_PREDATOR / 2;
     }
 }

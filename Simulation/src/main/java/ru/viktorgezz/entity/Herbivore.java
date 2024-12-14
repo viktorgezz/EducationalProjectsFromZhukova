@@ -1,15 +1,13 @@
 package ru.viktorgezz.entity;
 
-import ru.viktorgezz.map.GraphNode;
-import ru.viktorgezz.map.MapWorld;
+import ru.viktorgezz.map.Node;
 
 import java.util.List;
 import java.util.Random;
 
 public class Herbivore extends Creature {
 
-    public Herbivore(MapWorld mapWorld) {
-        super(mapWorld);
+    public Herbivore() {
         setHp(3);
         setStep(2);
         setAge(1);
@@ -21,15 +19,15 @@ public class Herbivore extends Creature {
         growOld();
     }
 
-    private void eatGrass(GraphNode nodeNearGrass) {
-        List<GraphNode> linkedNodes = searchGraph.getConnectNodesWithEntity(nodeNearGrass);
+    private void eatGrass(Node nodeNearGrass) {
+        List<Node> linkedNodes = searchNode.getConnectNodesWithEntity(nodeNearGrass);
 
-        for (GraphNode node : linkedNodes) {
+        for (Node node : linkedNodes) {
             if (node.getEntity() != null && node.getEntity().getClass() == Grass.class) {
                 Grass grass = (Grass) node.getEntity();
                 grass.minusSaturation();
                 if (grass.getSaturation() <= 0)
-                    mapWorld.removeImmobileEntity(grass);
+                    mapService.removeImmobileEntity(grass);
 
                 developCharacteristic();
                 plusHp();

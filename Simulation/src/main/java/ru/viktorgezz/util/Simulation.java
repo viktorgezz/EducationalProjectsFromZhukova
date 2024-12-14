@@ -1,8 +1,8 @@
-package ru.viktorgezz;
+package ru.viktorgezz.util;
 
 import ru.viktorgezz.actions.*;
 import ru.viktorgezz.map.MapRender;
-import ru.viktorgezz.map.MapWorld;
+import ru.viktorgezz.map.MapService;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class Simulation {
     private final List<Action> initActions = new LinkedList<>();
     private final LinkedList<Action> turnActions = new LinkedList<>();
 
-    private final MapWorld map = new MapWorld();
+    private final MapService mapService = new MapService();
     private final MapRender mapRender;
     private final WorldPopulationController checkNumHerbivore;
 
@@ -28,9 +28,9 @@ public class Simulation {
     private Future<?> simulationFuture;
 
     public Simulation(int horizontalSize, int verticalSize) {
-        map.createWorld(horizontalSize, verticalSize);
-        mapRender = new MapRender(map.getRoot());
-        checkNumHerbivore = new WorldPopulationController(map);
+        mapService.createWorld(horizontalSize, verticalSize);
+        mapRender = new MapRender(mapService.getRoot());
+        checkNumHerbivore = new WorldPopulationController(mapService);
 
         this.executorService = Executors.newFixedThreadPool(2);
     }
@@ -95,24 +95,24 @@ public class Simulation {
     }
 
     private void fillInitActions() {
-        initActions.add(new CreationEntities(map));
+        initActions.add(new CreationEntities(mapService));
     }
 
     private void fillMainActions() {
-        turnActions.add(new MoveCreatures(map));
+        turnActions.add(new MoveCreatures(mapService));
         generateEntitiesIfRequired();
     }
 
     private void generateEntitiesIfRequired() {
         if (checkNumHerbivore.isGrassGenerationRequired(countTern)) {
-            turnActions.addFirst(new CreationGrass(map));
+            turnActions.addFirst(new CreationGrass(mapService));
         }
         if (checkNumHerbivore.isHerbivoreGenerationRequired()) {
-            turnActions.addFirst(new CreationHerbivore(map));
+            turnActions.addFirst(new CreationHerbivore(mapService));
         }
 
         if (checkNumHerbivore.isPredatorGenerationRequired()) {
-            turnActions.addFirst(new CreationPredator(map));
+            turnActions.addFirst(new CreationPredator(mapService));
         }
     }
 

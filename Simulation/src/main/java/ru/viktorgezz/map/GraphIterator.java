@@ -2,12 +2,12 @@ package ru.viktorgezz.map;
 
 import java.util.*;
 
-public class GraphIterator implements Iterator<GraphNode> {
+public class GraphIterator implements Iterator<Node> {
 
-    private final Queue<GraphNode> queue = new LinkedList<>();
-    private final Set<GraphNode> set = new HashSet<>();
+    private final Queue<Node> queue = new LinkedList<>();
+    private final Set<Node> set = new HashSet<>();
 
-    public GraphIterator(GraphNode root) {
+    public GraphIterator(Node root) {
         if (root != null)
             queue.add(root);
     }
@@ -18,8 +18,8 @@ public class GraphIterator implements Iterator<GraphNode> {
     }
 
     @Override
-    public GraphNode next() {
-        GraphNode current = queue.poll();
+    public Node next() {
+        Node current = queue.poll();
         Objects.requireNonNull(current);
 
         if (current.getRight() != null && !set.contains(current.getRight())) {

@@ -1,6 +1,6 @@
 package ru.viktorgezz.entity;
 
-import ru.viktorgezz.map.GraphNode;
+import ru.viktorgezz.map.Node;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -10,17 +10,17 @@ public abstract class Entity {
 
     private UUID id;
 
-    private GraphNode node;
+    private Node node;
 
     public Entity() {
         setId(UUID.randomUUID());
     }
 
-    public GraphNode getNode() {
+    public Node getNode() {
         return node;
     }
 
-    public void setNode(GraphNode node) {
+    public void setNode(Node node) {
         this.node = node;
     }
 
