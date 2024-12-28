@@ -11,30 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8c5d8665-a880-4c1d-ad16-8f187a578534" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gigaide/gigaide.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gigaide/gigaide.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/.gigaide/gigaide.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/.gigaide/gigaide.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/SearchGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/util/SearchNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/util/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/CreationEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/CreationEntities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/CreationGrass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/CreationGrass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/CreationHerbivore.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/CreationHerbivore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/CreationPredator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/CreationPredator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/MoveCreatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/MoveCreatures.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/WorldPopulationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/actions/WorldPopulationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/entity/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/entity/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/entity/Herbivore.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/entity/Herbivore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/entity/Predator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/entity/Predator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/map/GraphIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/map/GraphIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/map/GraphNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/map/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/map/MapFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/map/MapFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/map/MapRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/map/MapRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/map/MapWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/map/MapService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Simulation/src/main/java/ru/viktorgezz/map/Size.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,40 +77,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "HTTP Request.test | #1.executor": "Run",
-    "HTTP Request.test | #3 (1).executor": "Run",
-    "HTTP Request.test | #4.executor": "Run",
-    "HTTP Request.test | #5.executor": "Run",
-    "HTTP Request.test | #6.executor": "Run",
-    "HTTP Request.test | #7.executor": "Run",
-    "HTTP Request.test | #8.executor": "Run",
-    "HTTP Request.test | #9.executor": "Run",
-    "Maven.Currency-exchange [package].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Tomcat Server.Tomcat 10.1.28.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "currency-exchange",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/vikto/projectsJava/java-backend-learning-course-Zhukov/Currency-exchange",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;HTTP Request.test | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #3 (1).executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #4.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #5.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #6.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #7.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #8.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | #9.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Currency-exchange [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.28.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;currency-exchange&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vikto/projectsJava/java-backend-learning-course-Zhukov/Currency-exchange&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vikto\projectsJava\java-backend-learning-course-Zhukov\Currency-exchange" />
