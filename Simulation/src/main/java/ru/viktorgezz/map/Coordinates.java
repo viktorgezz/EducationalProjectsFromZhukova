@@ -4,12 +4,12 @@ import java.util.Objects;
 
 public class Coordinates {
 
-    private final Integer x;
-    private final Integer y;
+    private final Integer y; // vertical
+    private final Integer x; // horizontal
 
-    public Coordinates(Integer x, Integer y) {
-        this.x = x;
+    public Coordinates(Integer y, Integer x) {
         this.y = y;
+        this.x = x;
     }
 
     public Integer getX() {
@@ -31,5 +31,13 @@ public class Coordinates {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    @Override
+    public String toString() {
+        return "Coordinates{" +
+                "y=" + y +
+                ", x=" + x +
+                '}';
     }
 }

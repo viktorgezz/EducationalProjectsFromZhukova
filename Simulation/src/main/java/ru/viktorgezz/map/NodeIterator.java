@@ -2,12 +2,12 @@ package ru.viktorgezz.map;
 
 import java.util.*;
 
-public class GraphIterator implements Iterator<Node> {
+public class NodeIterator implements Iterator<Node> {
 
     private final Queue<Node> queue = new LinkedList<>();
     private final Set<Node> set = new HashSet<>();
 
-    public GraphIterator(Node root) {
+    public NodeIterator(Node root) {
         if (root != null)
             queue.add(root);
     }

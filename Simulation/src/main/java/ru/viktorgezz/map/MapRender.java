@@ -9,8 +9,6 @@ import java.util.Queue;
 
 public class MapRender {
 
-    private final Node root;
-
     private static final String ANSI_RESET = "\u001b[0m";
     private static final String GREEN_COLOR = "\u001B[32m";
     private static final String RED_COLOR = "\u001B[31m";
@@ -18,13 +16,12 @@ public class MapRender {
     private static final String GRAY_COLOR = "\u001B[38;5;245m";
     private static final String DARK_GREEN_COLOR = "\u001B[38;5;22m";
 
-    public MapRender(Node root) {
-        this.root = root;
+    public MapRender() {
+
     }
 
-    public void printMap() {
+    public void printMap(Node node) {
         Queue<Node> queue = new LinkedList<>();
-        Node node = root;
 
         while (node != null) {
             while (true) {
@@ -33,12 +30,14 @@ public class MapRender {
                     printSelectedSpriteEntity(node.getEntity());
                 } else System.out.print("□ ");
 
-                if (node.getRight() == null) break;
+                if (node.getRight() == null) {
+                    break;
+                }
                 node = node.getRight();
-
             }
-            if (queue.peek() != null)
+            if (queue.peek() != null) {
                 node = queue.poll().getDown();
+            }
             queue.clear();
             System.out.println();
         }

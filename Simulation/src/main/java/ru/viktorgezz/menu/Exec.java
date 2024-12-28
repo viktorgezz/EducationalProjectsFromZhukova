@@ -1,6 +1,7 @@
 package ru.viktorgezz.menu;
 
-public interface Exec {
+import ru.viktorgezz.map.Node;
 
-    void exec();
+public interface Exec {
+    void exec(Node node);
 }

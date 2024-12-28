@@ -15,8 +15,8 @@ public class Node {
 
     private final Coordinates coordinates;
 
-    public Node(Integer x, Integer y) {
-        coordinates = new Coordinates(x, y);
+    public Node(Integer y, Integer x) {
+        coordinates = new Coordinates(y, x);
     }
 
     public Entity getEntity() {
@@ -62,7 +62,6 @@ public class Node {
     public Coordinates getCoordinates() {
         return coordinates;
     }
-
 
     @Override
     public boolean equals(Object o) {

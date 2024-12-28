@@ -6,13 +6,11 @@ public class MapFactory {
     private final Integer VERTICAL_SIZE;
     private Node[][] storageNodes;
 
-    private final Size size = new Size();
-
     public MapFactory(int horizontal, int vertical) {
         this.HORIZONTAL_SIZE = horizontal;
         this.VERTICAL_SIZE = vertical;
-        size.horizontal = horizontal;
-        size.vertical = vertical;
+        Size.horizontal = horizontal;
+        Size.vertical = vertical;
         create();
     }
 
@@ -26,37 +24,33 @@ public class MapFactory {
         return storageNodes[0][0];
     }
 
-    public Size getSize() {
-        return size;
-    }
-
     private void initStorageNodes() {
         storageNodes = new Node[HORIZONTAL_SIZE][VERTICAL_SIZE];
     }
 
 
     private void createNodes() {
-        for (int i = 0; i < HORIZONTAL_SIZE; i++) {
-            for (int j = 0; j < VERTICAL_SIZE; j++) {
-                storageNodes[i][j] = (new Node(j, i));
+        for (int y = 0; y < VERTICAL_SIZE; y++) {
+            for (int x = 0; x < HORIZONTAL_SIZE; x++) {
+                storageNodes[x][y] = new Node(y, x);
             }
         }
     }
 
     private void linkNodes() {
-        for (int i = 0; i < HORIZONTAL_SIZE; i++) {
-            for (int j = 0; j < VERTICAL_SIZE; j++) {
-                if (i > 0) {
-                    storageNodes[i][j].setLeft(storageNodes[i - 1][j]);
+        for (int y = 0; y < VERTICAL_SIZE; y++) {
+            for (int x = 0; x < HORIZONTAL_SIZE; x++) {
+                if (x > 0) {
+                    storageNodes[x][y].setLeft(storageNodes[x - 1][y]);
                 }
-                if (i < HORIZONTAL_SIZE - 1) {
-                    storageNodes[i][j].setRight(storageNodes[i + 1][j]);
+                if (x < HORIZONTAL_SIZE - 1) {
+                    storageNodes[x][y].setRight(storageNodes[x + 1][y]);
                 }
-                if (j > 0) {
-                    storageNodes[i][j].setUp(storageNodes[i][j - 1]);
+                if (y > 0) {
+                    storageNodes[x][y].setUp(storageNodes[x][y - 1]);
                 }
-                if (j < VERTICAL_SIZE - 1) {
-                    storageNodes[i][j].setDown(storageNodes[i][j + 1]);
+                if (y < VERTICAL_SIZE - 1) {
+                    storageNodes[x][y].setDown(storageNodes[x][y + 1]);
                 }
             }
         }

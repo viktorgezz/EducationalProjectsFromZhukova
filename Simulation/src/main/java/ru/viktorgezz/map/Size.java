@@ -2,8 +2,8 @@ package ru.viktorgezz.map;
 
 public class Size {
 
-    public Integer horizontal;
-    public Integer vertical;
+    public static Integer horizontal;
+    public static Integer vertical;
 
     public Size() {
     }
