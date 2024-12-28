@@ -1,4 +1,4 @@
-package ru.viktorgezz.util;
+package ru.viktorgezz.simulation;
 
 import ru.viktorgezz.action.creation.InitEntities;
 import ru.viktorgezz.map.MapFactory;

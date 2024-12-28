@@ -3,6 +3,10 @@ package ru.viktorgezz.action.creation;
 import ru.viktorgezz.entity.*;
 import ru.viktorgezz.map.Node;
 
+/**
+ * Класс отвечает за инициализацию всех сущностей в игровом мире при его создании.
+ * Он создает заданное количество травоядных, хищников, деревьев, камней и травы на основе данных из EntityCounter.
+ */
 public class InitEntities extends ACreation{
 
     private final CreationEntities creationEntities = CreationEntities.getInstance();

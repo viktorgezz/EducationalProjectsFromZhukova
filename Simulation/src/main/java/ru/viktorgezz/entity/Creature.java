@@ -1,5 +1,9 @@
 package ru.viktorgezz.entity;
 
+/**
+ * Абстрактный класс Creature представляет основу существ (травоядных, хищников).
+ * Он расширяет класс Entity, добавляя характеристики существа.
+ */
 public abstract class Creature extends Entity {
 
     private Integer step;

@@ -1,6 +1,6 @@
 package ru.viktorgezz.menu;
 
-import ru.viktorgezz.util.Turn;
+import ru.viktorgezz.simulation.Turn;
 
 import java.util.List;
 

@@ -10,8 +10,19 @@ import java.util.Optional;
 import java.util.Queue;
 import java.util.Random;
 
+/**
+ * Класс Movement отвечает за перемещение существ (Creature) по карте.
+ */
 public class Movement extends Action {
 
+    /**
+     * Перемещает существо к цели, либо выполняет случайное движение, если цель не найдена.
+     *
+     * @param targetClass   Класс цели, к которой нужно двигаться.
+     * @param actionCreature Действие, которое выполняется существом при достижении цели.
+     * @param creature      Существо, которое перемещается.
+     * @param <T>           Тип сущности цели.
+     */
     public  <T extends Entity> void move(Class<T> targetClass,
                                            Runnable actionCreature,
                                            Creature creature) {
@@ -33,6 +44,11 @@ public class Movement extends Action {
         }
     }
 
+    /**
+     * Выполняет случайное перемещение существа на соседний доступный узел.
+     *
+     * @param creature Существо, которое движется.
+     */
     private void randomMove(Creature creature) {
         List<Node> linkedNodes = searchNode.getConnectNodesWithNullEntity(creature.getNode());
 
@@ -42,6 +58,12 @@ public class Movement extends Action {
         }
     }
 
+    /**
+     * Изменяет положение существа на новый узел.
+     *
+     * @param newNode  Новый узел для перемещения.
+     * @param creature Существо, которое перемещается.
+     */
     private void changePosition(Node newNode, Creature creature) {
         if (newNode != null && newNode.getEntity() == null) {
             creature.getNode().setEntity(null);

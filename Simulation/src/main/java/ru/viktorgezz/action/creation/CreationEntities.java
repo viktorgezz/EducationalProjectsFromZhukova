@@ -4,6 +4,11 @@ package ru.viktorgezz.action.creation;
 import ru.viktorgezz.entity.Entity;
 import ru.viktorgezz.map.Node;
 
+/**
+ *  Класс предоставляет функционал для создания сущностей в игровом мире.
+ *  Он использует паттерн Singleton для обеспечения единственного экземпляра,
+ *  и позволяет устанавливать сущности в заданный узел карты.
+ */
 public class CreationEntities extends ACreation {
 
     private static CreationEntities instance = new CreationEntities();

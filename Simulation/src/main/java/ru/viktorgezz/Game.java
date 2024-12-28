@@ -1,6 +1,6 @@
 package ru.viktorgezz;
 
-import ru.viktorgezz.util.Simulation;
+import ru.viktorgezz.simulation.Simulation;
 
 public class Game {
     public static void main(String[] args) {

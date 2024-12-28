@@ -2,6 +2,11 @@ package ru.viktorgezz.action.creation;
 
 import ru.viktorgezz.map.Size;
 
+/**
+ * Класс хранит информацию о максимальном количестве сущностей каждого типа (травоядные, хищники, деревья, камни, трава),
+ * которое должно присутствовать в мире.
+ * Количество сущностей рассчитывается на основе размеров карты.
+ */
 public class EntityCounter {
 
     public EntityCounter() {

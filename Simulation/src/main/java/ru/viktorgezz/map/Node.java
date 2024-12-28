@@ -4,6 +4,10 @@ import ru.viktorgezz.entity.Entity;
 
 import java.util.Objects;
 
+/**
+ * Класс Node представляет собой узел карты, используемый для хранения информации об объекте, находящемся в этом узле,
+ * а также ссылок на соседние узлы и координат узла на карте.
+ */
 public class Node {
 
     private Entity entity;
